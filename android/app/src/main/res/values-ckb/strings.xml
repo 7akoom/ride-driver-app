@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Names of the notification channels, in the phone's settings (MainActivity). -->
+<resources>
+    <string name="channel_trip_offers">پێشنیاری گەشت</string>
+    <string name="channel_trip_offers_description">داواکاری گەشتی نوێ کاتێک سەرهێڵیت: وەک پەیوەندی زەنگ لێدەدات</string>
+    <string name="channel_general">هەژمار و جزدان</string>
+</resources>

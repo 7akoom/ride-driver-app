@@ -8,6 +8,7 @@ import '../core/l10n/language_preference.dart';
 import '../design/fonts/font_licenses.dart';
 import '../state/app_prefs.dart';
 import '../state/locale_provider.dart';
+import '../state/push_notifications.dart';
 import '../state/theme_provider.dart';
 import 'app.dart';
 import 'config_error_app.dart';
@@ -27,6 +28,8 @@ Future<void> bootstrap() async {
     return;
   }
 
+  await _initPush();
+
   final savedLocale = await LanguagePreference.read();
   final savedThemeMode = await AppPrefs.readThemeMode();
 
@@ -39,4 +42,13 @@ Future<void> bootstrap() async {
       child: const CaptainApp(),
     ),
   );
+}
+
+// Push is optional: a failure here (no Firebase setup in this build) must not stop the app.
+Future<void> _initPush() async {
+  try {
+    await PushNotifications.initialize();
+  } catch (error, stack) {
+    ErrorReporter.report(error, stack);
+  }
 }

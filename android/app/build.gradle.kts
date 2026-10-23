@@ -1,6 +1,9 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    // Firebase config from google-services.json. Its package_name must match applicationId,
+    // so each investor build ships that investor's own google-services.json.
+    id("com.google.gms.google-services")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }

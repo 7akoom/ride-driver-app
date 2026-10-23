@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "662491209298",
+    "project_id": "lenda-ride-platform",
+    "storage_bucket": "lenda-ride-platform.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:662491209298:android:382eeb3f7dc7987bd2898b",
+        "android_client_info": {
+          "package_name": "com.lenda.ride.rider"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjEXhOjLjQL3QOjNC6cIcMTp71ddBWUjY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:662491209298:android:c856230ab5ce1002d2898b",
+        "android_client_info": {
+          "package_name": "com.rideplatform.driver_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjEXhOjLjQL3QOjNC6cIcMTp71ddBWUjY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,6 +5,7 @@ import '../../account_status/presentation/suspended_screen.dart';
 import '../../account_status/presentation/under_review_screen.dart';
 import '../../account_status/presentation/welcome_screen.dart';
 import '../../documents/presentation/checklist/documents_screen.dart';
+import '../../push/presentation/push_shell.dart';
 import '../../registration/presentation/join/join_screen.dart';
 import '../../registration/presentation/you/you_step_screen.dart';
 import '../../work/presentation/home/home_screen.dart';
@@ -29,7 +30,18 @@ void openStep(BuildContext context, NextStep step) {
   };
 
   Navigator.of(context).pushAndRemoveUntil(
-    MaterialPageRoute<void>(builder: (_) => screen),
+    MaterialPageRoute<void>(builder: (_) => step.hasDriver ? _withPush(screen) : screen),
     (_) => false,
   );
+}
+
+/// Once the captain has a driver profile, the phone gets their notifications.
+Widget _withPush(Widget screen) =>
+    PushShell(recheckAccount: (context) => openStep(context, NextStep.checkAgain), child: screen);
+
+extension on NextStep {
+  bool get hasDriver => switch (this) {
+        NextStep.enterPhone || NextStep.join || NextStep.checkAgain => false,
+        _ => true,
+      };
 }

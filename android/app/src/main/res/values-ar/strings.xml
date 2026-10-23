@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Names of the notification channels, in the phone's settings (MainActivity). -->
+<resources>
+    <string name="channel_trip_offers">عروض الرحلات</string>
+    <string name="channel_trip_offers_description">طلبات الرحلات الجديدة وأنت متصل: ترن مثل المكالمة</string>
+    <string name="channel_general">الحساب والمحفظة</string>
+</resources>
