@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;font-family:'IBM Plex Sans Arabic',sans-serif;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-primary-container":"#fff2e0","secondary-container":"#fddfa3","on-secondary-fixed":"#261a00","tertiary":"#004cca","on-tertiary-fixed":"#00174b","primary-container":"#8a6a2b","inverse-primary":"#e9c179","on-surface-variant":"#4e4639","tertiary-container":"#2865ed","inverse-on-surface":"#eff0fd","primary-fixed":"#ffdea7","outline":"#807667","on-surface":"#191b24","surface-container-lowest":"#ffffff","error":"#ba1a1a","inverse-surface":"#2e303a","surface-container-high":"#e6e7f4","surface-container-highest":"#e1e2ee","on-secondary":"#ffffff","surface-container-low":"#f2f3ff","tertiary-fixed-dim":"#b4c5ff","on-tertiary":"#ffffff","surface-bright":"#faf8ff","on-secondary-container":"#786131","surface-tint":"#78591c","on-tertiary-fixed-variant":"#003ea8","surface-dim":"#d8d9e6","error-container":"#ffdad6","on-primary":"#ffffff","secondary-fixed":"#fddfa3","on-error":"#ffffff","on-secondary-fixed-variant":"#584416","background":"#faf8ff","on-primary-fixed":"#271900","on-tertiary-container":"#f2f2ff","tertiary-fixed":"#dbe1ff","primary-fixed-dim":"#e9c179","primary":"#6f5214","secondary":"#715b2c","surface-variant":"#e1e2ee","secondary-fixed-dim":"#e0c389","on-background":"#191b24","on-primary-fixed-variant":"#5d4203","surface":"#faf8ff","surface-container":"#ecedfa","outline-variant":"#d1c5b4","on-error-container":"#93000a"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.25rem","gutter":"1rem","margin":"1rem","space-xl":"2rem","space-lg":"1.5rem","space-sm":"0.5rem","space-md":"1rem"},"fontFamily":{"body-lg":["IBM Plex Sans Arabic","IBM Plex Sans"],"body-sm":["IBM Plex Sans Arabic","IBM Plex Sans"],"numeric-fare":["IBM Plex Sans Arabic","IBM Plex Sans"],"label-sm":["IBM Plex Sans Arabic","IBM Plex Sans"],"headline-md":["IBM Plex Sans Arabic","IBM Plex Sans"],"headline-lg":["IBM Plex Sans Arabic","IBM Plex Sans"],"label-lg":["IBM Plex Sans Arabic","IBM Plex Sans"],"label-md":["IBM Plex Sans Arabic","IBM Plex Sans"],"body-md":["IBM Plex Sans Arabic","IBM Plex Sans"],"headline-sm":["IBM Plex Sans Arabic","IBM Plex Sans"],"headline-xl":["IBM Plex Sans Arabic","IBM Plex Sans"]},"fontSize":{"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"numeric-fare":["28px",{"lineHeight":"36px","fontWeight":"700"}],"label-sm":["12px",{"lineHeight":"18px","fontWeight":"500"}],"headline-md":["20px",{"lineHeight":"30px","fontWeight":"600"}],"headline-lg":["26px",{"lineHeight":"36px","fontWeight":"700"}],"label-lg":["16px",{"lineHeight":"24px","fontWeight":"600"}],"label-md":["14px",{"lineHeight":"20px","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"headline-sm":["18px",{"lineHeight":"26px","fontWeight":"600"}],"headline-xl":["32px",{"lineHeight":"44px","fontWeight":"700"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)] pt-safe"><div class="h-16 px-space-sm flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="رجوع" class="w-14 h-14 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container-high transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-2xl">arrow_forward</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface font-semibold">إضافة سيارة</h1></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full px-margin pt-16 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full pb-10">
+<!-- Stepper Header -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-md shadow-sm mb-space-md">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center font-bold">1</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">بيانات السيارة</span>
+</div>
+<div class="h-[2px] flex-1 mx-space-sm bg-primary/20 relative">
+<div class="absolute right-0 top-0 bottom-0 w-1/2 bg-primary rounded-full"></div>
+</div>
+<div class="flex items-center gap-space-xs opacity-75">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm flex items-center justify-center">2</span>
+<span class="font-label-md text-label-md text-on-surface-variant">الوثائق والصور</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="font-body-sm text-body-sm text-primary font-medium">خطوة 1 من 2: جاري الإدخال</span>
+<span class="font-label-sm text-label-sm bg-surface-container-high px-space-xs py-0.5 rounded-full text-on-surface">مكتمل 50%</span>
+</div>
+</div>
+<!-- Section 1: Vehicle Information -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">مواصفات المركبة</h2>
+</div>
+<span class="font-label-sm text-label-sm text-primary bg-primary-fixed/40 px-2.5 py-1 rounded-full">كابتن معتمد</span>
+</div>
+<!-- Visual Vehicle Showcase Card -->
+<div class="relative w-full h-36 rounded-xl overflow-hidden bg-surface-container flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A sleek white modern Toyota Corolla sedan parked neatly against an architectural warm-toned minimalist background with warm ambient gold lighting reflections on the metallic car paint." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFAxDolg01gKNtdyqudnWL8qLXMPsxPRiJ0_FK4yuZCmNoDPc6p-mAuNQQ0PrcwUcok98U5-m1Xz531dL6eQBmrJFWd2KJzG1GkYAmhscjvUQWStRURXvYWTssT4rmcWbE5zYXNKZL9_j9ydS9EgsYSKlH9W4_0hs-5T_g0cSUhGmaXp6D8iTeKCWe8WSValYOFuB_QAOLDqxZgW14F_S8W3OIRGcMic_OltBo52s14PQkLlZItQ9H"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent flex items-end p-space-sm">
+<div class="text-surface">
+<p class="font-label-lg text-label-lg font-bold text-white leading-tight">تويوتا كورولا 2020</p>
+<p class="font-body-sm text-body-sm text-surface-container-highest">جاهزة لربط الحساب وبدء الرحلات</p>
+</div>
+</div>
+</div>
+<!-- Manufacturer & Model Pickers -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">الشركة المصنّعة</label>
+<div class="relative bg-surface-container-low rounded-lg flex items-center px-space-sm h-14">
+<select class="w-full bg-transparent font-body-md text-body-md text-on-surface appearance-none outline-none z-10 cursor-pointer" id="car-make">
+<option selected="" value="toyota">تويوتا</option>
+<option value="hyundai">هيونداي</option>
+<option value="kia">كيا</option>
+<option value="nissan">نيسان</option>
+</select>
+<span class="material-symbols-outlined text-outline absolute left-3 pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">الموديل</label>
+<div class="relative bg-surface-container-low rounded-lg flex items-center px-space-sm h-14">
+<select class="w-full bg-transparent font-body-md text-body-md text-on-surface appearance-none outline-none z-10 cursor-pointer" id="car-model">
+<option selected="" value="corolla">كورولا</option>
+<option value="camry">كامري</option>
+<option value="yaris">يارس</option>
+<option value="avalon">أفالون</option>
+</select>
+<span class="material-symbols-outlined text-outline absolute left-3 pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Production Year -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">سنة الصنع</label>
+<div class="relative bg-surface-container-low rounded-lg flex items-center px-space-sm h-14">
+<span class="material-symbols-outlined text-outline ml-2 text-[20px]">calendar_today</span>
+<select class="w-full bg-transparent font-body-md text-body-md text-on-surface appearance-none outline-none z-10 cursor-pointer" id="car-year">
+<option value="2024">2024</option>
+<option value="2023">2023</option>
+<option value="2022">2022</option>
+<option value="2021">2021</option>
+<option selected="" value="2020">2020</option>
+<option value="2019">2019</option>
+<option value="2018">2018</option>
+</select>
+<span class="material-symbols-outlined text-outline absolute left-3 pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- Exterior Color Selection -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface-variant">لون السيارة</label>
+<span class="font-label-sm text-label-sm text-primary font-semibold" id="selected-color-label">أبيض لؤلؤي</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-low rounded-lg p-space-sm">
+<!-- Pearl White (Selected) -->
+<button aria-label="أبيض لؤلؤي" class="color-dot relative w-10 h-10 rounded-full bg-[#fdfbf7] shadow-sm flex items-center justify-center transition-all scale-110 shadow-primary/20" onclick="selectColor(this, 'أبيض لؤلؤي')" type="button">
+<span class="material-symbols-outlined text-primary text-[18px] font-bold">check</span>
+</button>
+<!-- Silver Metallic -->
+<button aria-label="فضي معدني" class="color-dot relative w-10 h-10 rounded-full bg-[#cbd5e1] shadow-sm flex items-center justify-center transition-all" onclick="selectColor(this, 'فضي معدني')" type="button">
+<span class="material-symbols-outlined text-on-surface hidden text-[18px]">check</span>
+</button>
+<!-- Midnight Black -->
+<button aria-label="أسود ملوكي" class="color-dot relative w-10 h-10 rounded-full bg-[#1e293b] shadow-sm flex items-center justify-center transition-all" onclick="selectColor(this, 'أسود ملوكي')" type="button">
+<span class="material-symbols-outlined text-white hidden text-[18px]">check</span>
+</button>
+<!-- Charcoal Gray -->
+<button aria-label="رمادي غامق" class="color-dot relative w-10 h-10 rounded-full bg-[#64748b] shadow-sm flex items-center justify-center transition-all" onclick="selectColor(this, 'رمادي غامق')" type="button">
+<span class="material-symbols-outlined text-white hidden text-[18px]">check</span>
+</button>
+<!-- Deep Bronze / Gold -->
+<button aria-label="برونزي ذهبي" class="color-dot relative w-10 h-10 rounded-full bg-[#a16207] shadow-sm flex items-center justify-center transition-all" onclick="selectColor(this, 'برونزي ذهبي')" type="button">
+<span class="material-symbols-outlined text-white hidden text-[18px]">check</span>
+</button>
+</div>
+</div>
+<!-- License Plate Entry & Iraqi Plate Preview -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant">رقم اللوحة</label>
+<div class="bg-surface-container-low rounded-lg flex items-center px-space-sm h-14">
+<span class="material-symbols-outlined text-outline ml-2 text-[20px]">badge</span>
+<input class="w-full bg-transparent font-headline-sm text-headline-sm text-on-surface outline-none tracking-wider text-left placeholder:text-outline" id="plate-input" oninput="updatePlatePreview(this.value)" placeholder="22 A 00000" type="text" value="22 A 91823"/>
+<span class="font-label-md text-label-md text-on-surface-variant mr-2 shrink-0">أربيل</span>
+</div>
+<!-- Live Plate Badge Display -->
+<div class="mt-1 bg-surface-container-high rounded-xl p-space-sm flex items-center justify-center shadow-inner">
+<div class="bg-surface-container-lowest text-on-surface px-4 py-2 rounded-lg shadow-sm flex items-center justify-between w-full max-w-[280px]">
+<div class="flex flex-col items-center pl-3">
+<span class="font-label-sm text-label-sm text-primary font-bold tracking-widest leading-none">IRAQ</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">أربيل</span>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant"></div>
+<div class="pr-2 text-center flex-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-wider leading-none" id="plate-preview-text">22 A 91823</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Ride Category / Tier -->
+<div class="flex flex-col gap-2 pt-1">
+<label class="font-label-md text-label-md text-on-surface-variant">فئة المشوار المعتمدة</label>
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Economy Option (Selected) -->
+<label class="cursor-pointer bg-primary-fixed/30 rounded-xl p-space-sm flex flex-col gap-1 transition-all relative overflow-hidden" id="tier-eco" onclick="selectTier('eco')">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary text-[22px]">eco</span>
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center" id="check-eco">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-bold mt-1">اقتصادي</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">طلب فائق وأسعار ملائمة للمشاوير اليومية</span>
+</label>
+<!-- Comfort Option -->
+<label class="cursor-pointer bg-surface-container-low rounded-xl p-space-sm flex flex-col gap-1 transition-all relative overflow-hidden" id="tier-comf" onclick="selectTier('comf')">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-on-surface-variant text-[22px]">airline_seat_recline_extra</span>
+<span class="w-5 h-5 rounded-full bg-surface-container-highest text-transparent flex items-center justify-center" id="check-comf">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-bold mt-1">مريح</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">أجرة أعلى لسيارات حديثة ومساحة مريحة</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Section 2: Required Car Documents -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]" style="font-variation-settings: 'FILL' 1;">folder_shared</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">وثائق السيارة</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 من 4 مكتملة</span>
+</div>
+<!-- Document Checklist Items -->
+<div class="flex flex-col gap-space-sm">
+<!-- 1. Registration Front (Uploaded) -->
+<div class="bg-surface-container-low rounded-xl p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-lg bg-secondary-container/40 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[24px]">contact_page</span>
+</div>
+<div class="flex flex-col min-w-0 truncate">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">سنوية السيارة (الوجه)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">الملف: sanawiya_front_01.jpg</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-[#dcfce7] px-3 py-1.5 rounded-full shrink-0 mr-2">
+<span class="material-symbols-outlined text-[#15803d] text-[16px] font-bold">check_circle</span>
+<span class="font-label-sm text-label-sm text-[#15803d] font-semibold">تم الرفع ✓</span>
+</div>
+</div>
+<!-- 2. Registration Back (Uploaded) -->
+<div class="bg-surface-container-low rounded-xl p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-lg bg-secondary-container/40 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[24px]">contact_page</span>
+</div>
+<div class="flex flex-col min-w-0 truncate">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">سنوية السيارة (الظهر)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">الملف: sanawiya_back_01.jpg</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-[#dcfce7] px-3 py-1.5 rounded-full shrink-0 mr-2">
+<span class="material-symbols-outlined text-[#15803d] text-[16px] font-bold">check_circle</span>
+<span class="font-label-sm text-label-sm text-[#15803d] font-semibold">تم الرفع ✓</span>
+</div>
+</div>
+<!-- 3. Front Car Photo (Required) -->
+<div class="bg-surface-container-low rounded-xl p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">photo_camera_front</span>
+</div>
+<div class="flex flex-col min-w-0 truncate">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">صورة السيارة (من الأمام)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">وضوح اللوحة الأمامية</span>
+</div>
+</div>
+<button aria-label="التقاط صورة أمامية" class="flex items-center gap-1.5 bg-surface-container-highest hover:bg-primary/20 text-on-surface px-3 py-1.5 rounded-full shrink-0 mr-2 transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+<span class="font-label-sm text-label-sm font-semibold">مطلوب</span>
+</button>
+</div>
+<!-- 4. Rear Car Photo (Required) -->
+<div class="bg-surface-container-low rounded-xl p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">photo_camera_back</span>
+</div>
+<div class="flex flex-col min-w-0 truncate">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">صورة السيارة (من الخلف)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">وضوح اللوحة الخلفية</span>
+</div>
+</div>
+<button aria-label="التقاط صورة خلفية" class="flex items-center gap-1.5 bg-surface-container-highest hover:bg-primary/20 text-on-surface px-3 py-1.5 rounded-full shrink-0 mr-2 transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+<span class="font-label-sm text-label-sm font-semibold">مطلوب</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Operational Note Caption -->
+<div class="flex items-start gap-space-xs bg-surface-container/60 rounded-lg p-space-sm mb-space-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">verified_user</span>
+<p class="font-body-sm text-body-sm leading-relaxed">
+      تتم مراجعة بيانات السيارة واعتمادها خلال ساعات العمل. فور التفعيل، يمكنك التبديل بين سياراتك النشطة من خلال لوحة تحكم الكابتن.
+    </p>
+</div>
+<!-- Submit Action Button -->
+<div class="w-full mt-auto">
+<button class="w-full h-14 bg-primary hover:bg-primary-container text-on-primary rounded-xl flex items-center justify-center gap-space-xs shadow-md shadow-primary/20 transition-all active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[20px]">send</span>
+<span class="font-label-lg text-label-lg font-bold">إرسال للمراجعة</span>
+</button>
+</div>
+</div>
+<script>
+  function selectColor(btn, colorName) {
+    document.querySelectorAll('.color-dot').forEach(el => {
+      el.classList.remove('scale-110');
+      const checkIcon = el.querySelector('.material-symbols-outlined');
+      if (checkIcon) checkIcon.classList.add('hidden');
+    });
+    btn.classList.add('scale-110');
+    const activeCheck = btn.querySelector('.material-symbols-outlined');
+    if (activeCheck) activeCheck.classList.remove('hidden');
+    const label = document.getElementById('selected-color-label');
+    if (label) label.textContent = colorName;
+  }
+
+  function selectTier(type) {
+    const ecoCard = document.getElementById('tier-eco');
+    const comfCard = document.getElementById('tier-comf');
+    const ecoCheck = document.getElementById('check-eco');
+    const comfCheck = document.getElementById('check-comf');
+
+    if (type === 'eco') {
+      ecoCard.classList.replace('bg-surface-container-low', 'bg-primary-fixed/30');
+      comfCard.classList.replace('bg-primary-fixed/30', 'bg-surface-container-low');
+      ecoCheck.classList.replace('bg-surface-container-highest', 'bg-primary');
+      ecoCheck.classList.replace('text-transparent', 'text-on-primary');
+      comfCheck.classList.replace('bg-primary', 'bg-surface-container-highest');
+      comfCheck.classList.replace('text-on-primary', 'text-transparent');
+    } else {
+      comfCard.classList.replace('bg-surface-container-low', 'bg-primary-fixed/30');
+      ecoCard.classList.replace('bg-primary-fixed/30', 'bg-surface-container-low');
+      comfCheck.classList.replace('bg-surface-container-highest', 'bg-primary');
+      comfCheck.classList.replace('text-transparent', 'text-on-primary');
+      ecoCheck.classList.replace('bg-primary', 'bg-surface-container-highest');
+      ecoCheck.classList.replace('text-on-primary', 'text-transparent');
+    }
+  }
+
+  function updatePlatePreview(val) {
+    const preview = document.getElementById('plate-preview-text');
+    if (preview) {
+      preview.textContent = val.trim() === '' ? '22 A 00000' : val;
+    }
+  }
+</script></main></body></html>

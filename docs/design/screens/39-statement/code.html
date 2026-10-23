@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-variant": "#e1e2ee", "surface-container-lowest": "#ffffff", "surface-dim": "#d8d9e6", "tertiary-fixed-dim": "#b4c5ff", "primary-fixed-dim": "#e9c179", "surface-container-low": "#f2f3ff", "on-surface-variant": "#4e4639", "surface-tint": "#78591c", "on-primary": "#ffffff", "outline-variant": "#d1c5b4", "surface-container": "#ecedfa", "primary-container": "#8a6a2b", "secondary-fixed": "#fddfa3", "primary-fixed": "#ffdea7", "on-error-container": "#93000a", "on-primary-container": "#fff2e0", "error": "#ba1a1a", "tertiary": "#004cca", "on-background": "#191b24", "secondary": "#715b2c", "on-secondary-container": "#786131", "tertiary-container": "#2865ed", "on-tertiary-container": "#f2f2ff", "on-tertiary": "#ffffff", "on-primary-fixed": "#271900", "outline": "#807667", "surface-bright": "#faf8ff", "surface-container-highest": "#e1e2ee", "surface-container-high": "#e6e7f4", "on-error": "#ffffff", "secondary-container": "#fddfa3", "primary": "#6f5214", "error-container": "#ffdad6", "on-secondary": "#ffffff", "on-secondary-fixed-variant": "#584416", "inverse-surface": "#2e303a", "background": "#faf8ff", "on-primary-fixed-variant": "#5d4203", "inverse-on-surface": "#eff0fd", "on-tertiary-fixed-variant": "#003ea8", "on-secondary-fixed": "#261a00", "on-surface": "#191b24", "secondary-fixed-dim": "#e0c389", "on-tertiary-fixed": "#00174b", "tertiary-fixed": "#dbe1ff", "inverse-primary": "#e9c179", "surface": "#faf8ff" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-sm": "0.5rem", "space-xl": "2rem", "margin": "1rem", "gutter": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem" }, fontFamily: { "body-lg": ["IBM Plex Sans Arabic", "sans-serif"], "label-lg": ["IBM Plex Sans Arabic", "sans-serif"], "headline-xl": ["IBM Plex Sans Arabic", "sans-serif"], "label-sm": ["IBM Plex Sans Arabic", "sans-serif"], "headline-lg": ["IBM Plex Sans Arabic", "sans-serif"], "body-md": ["IBM Plex Sans Arabic", "sans-serif"], "headline-md": ["IBM Plex Sans Arabic", "sans-serif"], "body-sm": ["IBM Plex Sans Arabic", "sans-serif"], "headline-sm": ["IBM Plex Sans Arabic", "sans-serif"], "label-md": ["IBM Plex Sans Arabic", "sans-serif"], "numeric-fare": ["IBM Plex Sans Arabic", "sans-serif"] }, fontSize: { "body-lg": ["16px", { lineHeight: "26px", fontWeight: "400" }], "label-lg": ["16px", { lineHeight: "24px", fontWeight: "600" }], "headline-xl": ["32px", { lineHeight: "44px", fontWeight: "700" }], "label-sm": ["12px", { lineHeight: "18px", fontWeight: "500" }], "headline-lg": ["26px", { lineHeight: "36px", fontWeight: "700" }], "body-md": ["14px", { lineHeight: "22px", fontWeight: "400" }], "headline-md": ["20px", { lineHeight: "30px", fontWeight: "600" }], "body-sm": ["13px", { lineHeight: "20px", fontWeight: "400" }], "headline-sm": ["18px", { lineHeight: "26px", fontWeight: "600" }], "label-md": ["14px", { lineHeight: "20px", fontWeight: "500" }], "numeric-fare": ["28px", { lineHeight: "36px", fontWeight: "700" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;font-family:'IBM Plex Sans Arabic',sans-serif;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="رجوع" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-variant/40 transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_forward</span></button><h1 class="font-headline-md text-headline-md text-on-surface">كشف الحساب</h1></div><div class="w-11 h-11"></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 bg-surface"><div class="flex flex-col w-full pb-safe">
+<!-- Period Selector Pills -->
+<section class="px-margin pt-space-sm pb-space-xs">
+<div class="flex items-center gap-space-sm overflow-x-auto no-scrollbar py-1">
+<button class="h-10 px-5 rounded-full font-label-md text-label-md bg-inverse-surface text-inverse-on-surface shadow-sm transition-transform active:scale-95 flex items-center justify-center shrink-0" id="pill-30d" type="button">
+        30 يوم
+      </button>
+<button class="h-10 px-5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors active:scale-95 flex items-center justify-center shrink-0" id="pill-3m" type="button">
+        3 أشهر
+      </button>
+<button class="h-10 px-4 rounded-full font-label-md text-label-md bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors active:scale-95 flex items-center gap-1.5 shrink-0" id="pill-custom" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span>مخصص</span>
+</button>
+</div>
+</section>
+<!-- Financial Summary Card (Bento Style with Tonal Contrast) -->
+<section class="px-margin py-space-sm">
+<div class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm space-y-4">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<h2 class="font-label-lg text-label-lg text-on-surface">ملخص الفترة (1 تشرين الأول – 31 تشرين الأول)</h2>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[20px]">analytics</span>
+</div>
+<!-- 2x2 Metric Grid -->
+<div class="grid grid-cols-2 gap-3">
+<!-- 1: رصيد أول الفترة -->
+<div class="bg-surface-container-low rounded-xl p-3.5 flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-secondary">رصيد أول الفترة</span>
+<div class="mt-2 flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">12,000</span>
+<span class="font-label-sm text-label-sm text-secondary">د.ع</span>
+</div>
+</div>
+<!-- 2: مجموع الداخل -->
+<div class="bg-surface-container-low rounded-xl p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">مجموع الداخل</span>
+<span class="material-symbols-outlined text-[16px] text-[#15803D]">arrow_downward</span>
+</div>
+<div class="mt-2 flex items-baseline gap-1 text-[#15803D]">
+<span class="font-headline-sm text-headline-sm font-bold">+185,500</span>
+<span class="font-label-sm text-label-sm">د.ع</span>
+</div>
+</div>
+<!-- 3: مجموع الخارج -->
+<div class="bg-surface-container-low rounded-xl p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">مجموع الخارج</span>
+<span class="material-symbols-outlined text-[16px] text-error">arrow_upward</span>
+</div>
+<div class="mt-2 flex items-baseline gap-1 text-error">
+<span class="font-headline-sm text-headline-sm font-bold">-159,500</span>
+<span class="font-label-sm text-label-sm">د.ع</span>
+</div>
+</div>
+<!-- 4: رصيد آخر الفترة -->
+<div class="bg-secondary-container/40 rounded-xl p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-secondary-container font-semibold">رصيد آخر الفترة</span>
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<div class="mt-2 flex items-baseline gap-1 text-on-surface">
+<span class="font-headline-sm text-headline-sm font-bold">38,000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">د.ع</span>
+</div>
+</div>
+</div>
+<!-- Quick Progress Bar Representation of Inflow vs Outflow -->
+<div class="pt-1">
+<div class="flex justify-between items-center text-label-sm font-label-sm text-on-surface-variant mb-1.5">
+<span>معدل السيولة المستبقاة</span>
+<span class="font-semibold text-on-surface">20.5%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container flex overflow-hidden">
+<div class="bg-[#15803D] h-full" style="width: 53.8%;"></div>
+<div class="bg-error h-full" style="width: 46.2%;"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Action Buttons Row -->
+<section class="px-margin py-space-xs">
+<div class="grid grid-cols-2 gap-3">
+<button class="h-14 bg-surface-container-lowest rounded-xl flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-transform text-on-surface hover:bg-surface-container-low" id="download-btn" type="button">
+<span class="material-symbols-outlined text-primary text-[22px]">download</span>
+<span class="font-label-md text-label-md font-semibold">تحميل كملف PDF</span>
+</button>
+<button class="h-14 bg-surface-container-lowest rounded-xl flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-transform text-on-surface hover:bg-surface-container-low" id="share-btn" type="button">
+<span class="material-symbols-outlined text-primary text-[22px]">share</span>
+<span class="font-label-md text-label-md font-semibold">مشاركة</span>
+</button>
+</div>
+</section>
+<!-- Detailed Statement Item List -->
+<section class="px-margin pt-space-md pb-space-xl">
+<div class="flex items-center justify-between mb-3">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">الحركات المالية المفصلة</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">6 حركات مسجلة</span>
+</div>
+<div class="space-y-3">
+<!-- Record 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex items-center justify-between gap-3 transition-transform active:scale-[0.99]">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-[#DCFCE7] text-[#15803D] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">local_taxi</span>
+</div>
+<div class="min-w-0 flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface truncate">أجرة رحلة - طريق المطار</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">31 تشرين الأول، 2023 • 09:42 م</span>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span>الرصيد بعد الحركة:</span>
+<span class="font-semibold text-on-surface">38,000 د.ع</span>
+</div>
+</div>
+</div>
+<div class="text-left shrink-0">
+<span class="font-headline-sm text-headline-sm font-bold text-[#15803D]">+8,500</span>
+<span class="font-label-sm text-label-sm block text-on-surface-variant">د.ع</span>
+</div>
+</div>
+<!-- Record 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex items-center justify-between gap-3 transition-transform active:scale-[0.99]">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-error-container/60 text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">local_gas_station</span>
+</div>
+<div class="min-w-0 flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface truncate">محطة وقود آسيا - بنزين محسن</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">30 تشرين الأول، 2023 • 04:15 م</span>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span>الرصيد بعد الحركة:</span>
+<span class="font-semibold text-on-surface">29,500 د.ع</span>
+</div>
+</div>
+</div>
+<div class="text-left shrink-0">
+<span class="font-headline-sm text-headline-sm font-bold text-error">-25,000</span>
+<span class="font-label-sm text-label-sm block text-on-surface-variant">د.ع</span>
+</div>
+</div>
+<!-- Record 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex items-center justify-between gap-3 transition-transform active:scale-[0.99]">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-[#DCFCE7] text-[#15803D] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">payments</span>
+</div>
+<div class="min-w-0 flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface truncate">حافز إكمال أهداف الأسبوع</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">28 تشرين الأول، 2023 • 11:00 ص</span>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span>الرصيد بعد الحركة:</span>
+<span class="font-semibold text-on-surface">54,500 د.ع</span>
+</div>
+</div>
+</div>
+<div class="text-left shrink-0">
+<span class="font-headline-sm text-headline-sm font-bold text-[#15803D]">+45,000</span>
+<span class="font-label-sm text-label-sm block text-on-surface-variant">د.ع</span>
+</div>
+</div>
+<!-- Record 4 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex items-center justify-between gap-3 transition-transform active:scale-[0.99]">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-error-container/60 text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">account_balance</span>
+</div>
+<div class="min-w-0 flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface truncate">تحويل نقدي إلى محفظة زين كاش</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">25 تشرين الأول، 2023 • 08:30 م</span>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span>الرصيد بعد الحركة:</span>
+<span class="font-semibold text-on-surface">9,500 د.ع</span>
+</div>
+</div>
+</div>
+<div class="text-left shrink-0">
+<span class="font-headline-sm text-headline-sm font-bold text-error">-100,000</span>
+<span class="font-label-sm text-label-sm block text-on-surface-variant">د.ع</span>
+</div>
+</div>
+<!-- Record 5 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex items-center justify-between gap-3 transition-transform active:scale-[0.99]">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-[#DCFCE7] text-[#15803D] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">local_taxi</span>
+</div>
+<div class="min-w-0 flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface truncate">أجرة رحلة - بختياري إلى عينكاوة</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">22 تشرين الأول، 2023 • 02:18 م</span>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span>الرصيد بعد الحركة:</span>
+<span class="font-semibold text-on-surface">109,500 د.ع</span>
+</div>
+</div>
+</div>
+<div class="text-left shrink-0">
+<span class="font-headline-sm text-headline-sm font-bold text-[#15803D]">+12,000</span>
+<span class="font-label-sm text-label-sm block text-on-surface-variant">د.ع</span>
+</div>
+</div>
+<!-- Record 6 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm flex items-center justify-between gap-3 transition-transform active:scale-[0.99]">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-error-container/60 text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">receipt_long</span>
+</div>
+<div class="min-w-0 flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface truncate">رسوم تشغيل المنصة الأسبوعية</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">15 تشرين الأول، 2023 • 12:00 ص</span>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span>الرصيد بعد الحركة:</span>
+<span class="font-semibold text-on-surface">97,500 د.ع</span>
+</div>
+</div>
+</div>
+<div class="text-left shrink-0">
+<span class="font-headline-sm text-headline-sm font-bold text-error">-34,500</span>
+<span class="font-label-sm text-label-sm block text-on-surface-variant">د.ع</span>
+</div>
+</div>
+</div>
+<!-- Verified Audit Stamp -->
+<div class="mt-6 p-4 rounded-xl bg-surface-container-low flex items-center justify-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px] text-primary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-sm text-label-sm">كشف حساب رسمي معتمد صادر من النظام المالي المركزي</span>
+</div>
+</section>
+<!-- Interactive Feedback Toast Placeholder (Hidden by Default) -->
+<div class="fixed bottom-6 inset-x-margin max-w-sm mx-auto bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-xl shadow-xl flex items-center justify-between gap-3 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none z-50" id="action-toast">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed">check_circle</span>
+<span class="font-label-md text-label-md" id="toast-message">تم استخراج كشف الحساب بنجاح</span>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    // Dynamic Pill Selection
+    const pills = [
+      document.getElementById('pill-30d'),
+      document.getElementById('pill-3m'),
+      document.getElementById('pill-custom')
+    ];
+
+    pills.forEach(pill => {
+      if (!pill) return;
+      pill.addEventListener('click', () => {
+        pills.forEach(p => {
+          p.classList.remove('bg-inverse-surface', 'text-inverse-on-surface', 'shadow-sm');
+          p.classList.add('bg-surface-container', 'text-on-surface');
+        });
+        pill.classList.remove('bg-surface-container', 'text-on-surface');
+        pill.classList.add('bg-inverse-surface', 'text-inverse-on-surface', 'shadow-sm');
+      });
+    });
+
+    // Toast Trigger Helper
+    const toast = document.getElementById('action-toast');
+    const toastMessage = document.getElementById('toast-message');
+    let toastTimeout;
+
+    function showNotification(msg) {
+      if (!toast) return;
+      toastMessage.textContent = msg;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 2500);
+    }
+
+    const downloadBtn = document.getElementById('download-btn');
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', () => {
+        showNotification('جاري تحميل كشف الحساب بصيغة PDF...');
+      });
+    }
+
+    const shareBtn = document.getElementById('share-btn');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', () => {
+        if (navigator.share) {
+          navigator.share({
+            title: 'كشف الحساب المالي',
+            text: 'كشف الحساب للفترة من 1 تشرين الأول إلى 31 تشرين الأول'
+          }).catch(() => {});
+        } else {
+          showNotification('تم نسخ رابط التقرير لمشاركته');
+        }
+      });
+    }
+  })();
+</script></main></body></html>
