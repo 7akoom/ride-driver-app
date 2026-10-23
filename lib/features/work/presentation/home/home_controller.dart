@@ -13,9 +13,14 @@ final homeControllerProvider = NotifierProvider.autoDispose<HomeController, Home
 /// going online and offline, and today's numbers.
 class HomeController extends AutoDisposeNotifier<HomeState> {
   ReportingNotice? _notice;
+  bool _alive = true;
 
   @override
-  HomeState build() => const HomeState();
+  HomeState build() {
+    ref.onDispose(() => _alive = false);
+
+    return const HomeState();
+  }
 
   /// Finds out how the captain stands. Returns the trip under way, to open it again.
   Future<String?> start(ReportingNotice notice) async {
@@ -45,6 +50,26 @@ class HomeController extends AutoDisposeNotifier<HomeState> {
       state = state.copyWith(today: value);
     }
   }
+
+  /// After a trip: the backend settles its earnings a few seconds after it ends, so
+  /// the numbers are asked again until the trip shows (or [retries] run out).
+  Future<void> refreshAfterTrip() async {
+    final before = state.today?.trips ?? 0;
+    await refreshToday();
+
+    for (final wait in retries) {
+      if (!_alive || (state.today?.trips ?? 0) > before) {
+        return;
+      }
+      await Future<void>.delayed(wait);
+      if (_alive) {
+        await refreshToday();
+      }
+    }
+  }
+
+  /// How long to wait before asking again after a trip, each time.
+  static const List<Duration> retries = [Duration(seconds: 3), Duration(seconds: 10)];
 
   Future<void> toggle() async {
     final notice = _notice;

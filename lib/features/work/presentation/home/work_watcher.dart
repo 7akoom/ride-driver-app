@@ -56,7 +56,7 @@ mixin WorkWatcher<T extends ConsumerStatefulWidget> on ConsumerState<T> {
   Future<void> openTrip() async {
     await openLegacyTrip(context, ref);
     if (mounted) {
-      await ref.read(homeControllerProvider.notifier).refreshToday();
+      await ref.read(homeControllerProvider.notifier).refreshAfterTrip();
     }
   }
 
