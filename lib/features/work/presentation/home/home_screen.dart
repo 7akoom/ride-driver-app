@@ -100,47 +100,27 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with WorkWatcher {
 
     return AppScaffold(
       padded: false,
-      body: Stack(
-        children: [
-          MapLayout(
-            panelShare: 0.45,
-            map: (covered) => AppMap(
-              center: _position,
-              zoom: AppMap.streetZoom,
-              vehicle: _position,
-              frameBottom: covered,
-              onCreated: (map) => _map = map,
-            ),
-            marker: state.online
-                ? (covered) => Padding(
-                      padding: EdgeInsetsDirectional.only(bottom: covered),
-                      child: const Center(child: PulseRings(showMarker: false)),
-                    )
-                : null,
-            buttons: Align(
-              alignment: AlignmentDirectional.centerEnd,
-              child: AppIconButton(
-                icon: Icons.my_location,
-                semanticLabel: context.l10n.actionRecentre,
-                floating: true,
-                onPressed: _position == null ? null : () => _map?.moveTo(_position!),
-              ),
-            ),
-            panel: MapPanel(
-              children: [
-                TodayStats(today: state.today),
-                const SizedBox(height: Space.x4),
-                OnlineToggle(
-                  online: state.online,
-                  busy: state.switching || state.starting,
-                  onPressed: controller.toggle,
-                ),
-              ],
-            ),
-          ),
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsetsDirectional.all(Space.gutter),
+      body: MapLayout(
+        panelShare: 0.45,
+        map: (covered) => AppMap(
+          center: _position,
+          zoom: AppMap.streetZoom,
+          vehicle: _position,
+          frameBottom: covered,
+          onCreated: (map) => _map = map,
+        ),
+        marker: state.online
+            ? (covered) => Padding(
+                  padding: EdgeInsetsDirectional.only(bottom: covered),
+                  child: const Center(child: PulseRings(showMarker: false)),
+                )
+            : null,
+        buttons: Stack(
+          children: [
+            PositionedDirectional(
+              top: Space.x3,
+              start: Space.gutter,
+              end: Space.gutter,
               child: Row(
                 children: [
                   AppIconButton(
@@ -162,8 +142,29 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with WorkWatcher {
                 ],
               ),
             ),
-          ),
-        ],
+            PositionedDirectional(
+              bottom: Space.x4,
+              end: Space.gutter,
+              child: AppIconButton(
+                icon: Icons.my_location,
+                semanticLabel: context.l10n.actionRecentre,
+                floating: true,
+                onPressed: _position == null ? null : () => _map?.moveTo(_position!),
+              ),
+            ),
+          ],
+        ),
+        panel: MapPanel(
+          children: [
+            TodayStats(today: state.today),
+            const SizedBox(height: Space.x4),
+            OnlineToggle(
+              online: state.online,
+              busy: state.switching || state.starting,
+              onPressed: controller.toggle,
+            ),
+          ],
+        ),
       ),
     );
   }
