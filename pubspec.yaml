@@ -1,5 +1,5 @@
 name: driver_app
-description: Ride Platform — Driver app (Flutter)
+description: Ride Platform — Captain (driver) app (Flutter)
 publish_to: "none"
 version: 0.1.0
 
@@ -11,18 +11,23 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  google_fonts: ^6.2.1
+  intl: any
   maplibre_gl: ^0.27.1
   dio: ^5.5.0
+  crypto: ^3.0.3
   flutter_riverpod: ^2.5.1
   flutter_secure_storage: ^9.2.2
   url_launcher: ^6.3.1
   shared_preferences: ^2.3.2
+  image_picker: ^1.1.2
   # The phone's GPS. The range lets pub pick the newest version that works with the
   # installed Flutter (version 14 needs Flutter 3.29 or newer).
   geolocator: ">=12.0.0 <15.0.0"
-  # Keeps the screen on while the driver is online, so the position keeps being reported.
+  # Keeps the screen on while the captain is online, so the position keeps being reported.
   wakelock_plus: ">=1.2.0 <2.0.0"
+  # Only for the screens still under lib/legacy (home and the trip); they go once the
+  # redesigned home and trip screens replace them.
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:
@@ -31,3 +36,27 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/fonts/OFL.txt
+
+  fonts:
+    - family: IBMPlexSansArabic
+      fonts:
+        - asset: assets/fonts/IBMPlexSansArabic-Regular.ttf
+        - asset: assets/fonts/IBMPlexSansArabic-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/IBMPlexSansArabic-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/IBMPlexSansArabic-Bold.ttf
+          weight: 700
+    - family: IBMPlexSans
+      fonts:
+        - asset: assets/fonts/IBMPlexSans-Regular.ttf
+        - asset: assets/fonts/IBMPlexSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/IBMPlexSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/IBMPlexSans-Bold.ttf
+          weight: 700

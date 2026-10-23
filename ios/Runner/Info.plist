@@ -66,5 +66,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>The camera takes photos of your documents, your car and your profile photo for the review of your account.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Choose photos of your documents or your car from your library.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your location is sent while you are online so nearby trips reach you and riders see where you are.</string>
 </dict>
 </plist>

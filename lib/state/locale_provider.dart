@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// Only ar/en are real Flutter localizations here; 'ku' (Sorani) has no
-/// GlobalMaterialLocalizations delegate, so picking it only affects the
-/// stored preference below, not system widgets (date pickers, etc.) — see
-/// the TODO on SettingsScreen for what full Kurdish support still needs.
-final localeProvider = StateProvider<Locale>((ref) => const Locale('ar'));
+import '../core/l10n/app_locales.dart';
+
+/// The app's language. The saved choice replaces this at start (bootstrap.dart).
+final localeProvider = StateProvider<Locale>((ref) => AppLocales.fallback);

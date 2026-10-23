@@ -1,0 +1,823 @@
+{
+  "@@locale": "en",
+  "errorNoConnection": "No internet connection. Check your network and try again.",
+  "@errorNoConnection": {
+    "description": "Shown when a request could not reach the server at all."
+  },
+  "errorTimeout": "This is taking longer than usual. Please try again.",
+  "@errorTimeout": {
+    "description": "Shown when a request timed out."
+  },
+  "errorServer": "Something went wrong on our side. Please try again shortly.",
+  "@errorServer": {
+    "description": "Shown for 5xx answers from the server."
+  },
+  "errorSessionExpired": "Your session has ended. Please sign in again.",
+  "@errorSessionExpired": {
+    "description": "Shown when the session could not be renewed."
+  },
+  "errorForbidden": "You are not allowed to do this.",
+  "@errorForbidden": {
+    "description": "Shown for permission errors."
+  },
+  "errorNotFound": "We couldn't find what you're looking for.",
+  "@errorNotFound": {
+    "description": "Shown when the requested item does not exist."
+  },
+  "errorConflict": "This was already done or the details have changed. Refresh and try again.",
+  "@errorConflict": {
+    "description": "Shown for conflicts such as a duplicate action."
+  },
+  "errorTooManyRequests": "Too many attempts. Please wait a moment and try again.",
+  "@errorTooManyRequests": {
+    "description": "Shown when the server rate-limits the user."
+  },
+  "errorInvalidInput": "Some details are not valid. Please check them and try again.",
+  "@errorInvalidInput": {
+    "description": "Generic message for rejected input."
+  },
+  "errorNotAllowedNow": "This can't be done right now.",
+  "@errorNotAllowedNow": {
+    "description": "Generic message for a failed precondition."
+  },
+  "errorUnexpected": "Something unexpected happened. Please try again.",
+  "@errorUnexpected": {
+    "description": "Fallback for any error that has no better message."
+  },
+  "errorAppMisconfigured": "The app is not set up correctly. Please contact the service provider.",
+  "@errorAppMisconfigured": {
+    "description": "Shown when the build has an unsafe or missing configuration."
+  },
+  "errorPartFailed": "This part couldn't be shown.",
+  "@errorPartFailed": {
+    "description": "Shown in place of a widget that failed to build."
+  },
+  "actionRetry": "Try again",
+  "@actionRetry": {
+    "description": "Button that repeats a failed action."
+  },
+  "actionBack": "Back",
+  "@actionBack": {
+    "description": "Back button and its screen-reader label."
+  },
+  "actionClose": "Close",
+  "@actionClose": {
+    "description": "Closes a sheet or dialog."
+  },
+  "actionDeleteDigit": "Delete",
+  "@actionDeleteDigit": {
+    "description": "Screen-reader label of the keypad's backspace key."
+  },
+  "loading": "Loading",
+  "@loading": {
+    "description": "Screen-reader label while something loads."
+  },
+  "navHome": "Home",
+  "@navHome": {
+    "description": "Bottom navigation tab."
+  },
+  "navAccount": "Account",
+  "@navAccount": {
+    "description": "Bottom navigation tab."
+  },
+  "vehicleEconomy": "Economy",
+  "@vehicleEconomy": {
+    "description": "Vehicle class name."
+  },
+  "vehicleComfort": "Comfort",
+  "@vehicleComfort": {
+    "description": "Vehicle class name."
+  },
+  "fieldPhone": "Phone number",
+  "@fieldPhone": {
+    "description": "Phone field label."
+  },
+  "fieldName": "Name",
+  "@fieldName": {
+    "description": "Name field label."
+  },
+  "moneyAmount": "{amount} IQD",
+  "@moneyAmount": {
+    "description": "An amount of money. amount is already formatted (Western digits, isolated left-to-right).",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "languageTitle": "Choose your language",
+  "@languageTitle": {
+    "description": "Language screen title."
+  },
+  "languageNameArabic": "العربية",
+  "@languageNameArabic": {
+    "description": "The Arabic language in Arabic: the same in every file."
+  },
+  "languageNameKurdish": "کوردی",
+  "@languageNameKurdish": {
+    "description": "Kurdish (Sorani) in Kurdish: the same in every file."
+  },
+  "languageNameEnglish": "English",
+  "@languageNameEnglish": {
+    "description": "English in English: the same in every file."
+  },
+  "phoneTitle": "Enter your phone number",
+  "@phoneTitle": {
+    "description": "Phone screen title."
+  },
+  "phoneSubtitle": "We'll send you a code to sign in.",
+  "@phoneSubtitle": {
+    "description": "Under the phone screen title."
+  },
+  "phoneInvalid": "Enter a valid mobile number, for example 0750 123 4567.",
+  "@phoneInvalid": {
+    "description": "Under the phone field when the number cannot be used."
+  },
+  "phoneSendCode": "Send code",
+  "@phoneSendCode": {
+    "description": "Phone screen button."
+  },
+  "phoneTerms": "By continuing you agree to the Terms of Use and the Privacy Policy.",
+  "@phoneTerms": {
+    "description": "Small print under the phone field."
+  },
+  "sendCodeTooMany": "Too many codes requested. Wait a few minutes and try again.",
+  "@sendCodeTooMany": {
+    "description": "The backend refused to send another code yet."
+  },
+  "sendCodeUnavailable": "We can't send codes right now. Please try again shortly.",
+  "@sendCodeUnavailable": {
+    "description": "The code delivery service is down."
+  },
+  "otpTitle": "Enter the code",
+  "@otpTitle": {
+    "description": "Code screen title."
+  },
+  "otpSentTo": "We sent a 6-digit code to {phone}",
+  "@otpSentTo": {
+    "description": "Under the code screen title.",
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    }
+  },
+  "otpEditNumber": "Edit number",
+  "@otpEditNumber": {
+    "description": "Goes back to change the phone number."
+  },
+  "otpResendIn": "Resend in {time}",
+  "@otpResendIn": {
+    "description": "Countdown before a new code can be asked for; time is like 0:43.",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "otpResend": "Resend code",
+  "@otpResend": {
+    "description": "Asks for a new code."
+  },
+  "otpResent": "A new code is on its way.",
+  "@otpResent": {
+    "description": "Toast after a new code was sent."
+  },
+  "codeWrong": "That code isn't right. Check it and try again.",
+  "@codeWrong": {
+    "description": "The typed code was refused."
+  },
+  "codeExpired": "This code has expired. Ask for a new one.",
+  "@codeExpired": {
+    "description": "The code ran out or was already used."
+  },
+  "codeTooManyTries": "Too many wrong tries. Ask for a new code.",
+  "@codeTooManyTries": {
+    "description": "Too many wrong codes for this one."
+  },
+  "accountBlocked": "This account is suspended. Please contact support.",
+  "@accountBlocked": {
+    "description": "The account cannot sign in."
+  },
+  "distanceKm": "{km} km",
+  "@distanceKm": {
+    "description": "A distance in kilometers; km is already formatted.",
+    "placeholders": {
+      "km": {
+        "type": "String"
+      }
+    }
+  },
+  "distanceMeters": "{meters} m",
+  "@distanceMeters": {
+    "description": "A distance in meters; meters is already formatted.",
+    "placeholders": {
+      "meters": {
+        "type": "String"
+      }
+    }
+  },
+  "today": "Today",
+  "@today": {
+    "description": "Today."
+  },
+  "tomorrow": "Tomorrow",
+  "@tomorrow": {
+    "description": "Tomorrow."
+  },
+  "weekdayMonday": "Monday",
+  "@weekdayMonday": {
+    "description": "Day name."
+  },
+  "weekdayTuesday": "Tuesday",
+  "@weekdayTuesday": {
+    "description": "Day name."
+  },
+  "weekdayWednesday": "Wednesday",
+  "@weekdayWednesday": {
+    "description": "Day name."
+  },
+  "weekdayThursday": "Thursday",
+  "@weekdayThursday": {
+    "description": "Day name."
+  },
+  "weekdayFriday": "Friday",
+  "@weekdayFriday": {
+    "description": "Day name."
+  },
+  "weekdaySaturday": "Saturday",
+  "@weekdaySaturday": {
+    "description": "Day name."
+  },
+  "weekdaySunday": "Sunday",
+  "@weekdaySunday": {
+    "description": "Day name."
+  },
+  "timeAm": "AM",
+  "@timeAm": {
+    "description": "Before noon, after a time."
+  },
+  "timePm": "PM",
+  "@timePm": {
+    "description": "After noon, after a time."
+  },
+  "rateStars": "{count} of 5 stars",
+  "@rateStars": {
+    "description": "Screen reader label of a star.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "movementTopUp": "Top-up",
+  "@movementTopUp": {
+    "description": "A movement."
+  },
+  "movementTrip": "Trip payment",
+  "@movementTrip": {
+    "description": "A movement."
+  },
+  "movementChange": "Change from a trip",
+  "@movementChange": {
+    "description": "A movement: change the captain did not have."
+  },
+  "movementSent": "Money sent",
+  "@movementSent": {
+    "description": "A movement."
+  },
+  "movementReceived": "Money received",
+  "@movementReceived": {
+    "description": "A movement."
+  },
+  "movementDue": "Cancellation fee paid",
+  "@movementDue": {
+    "description": "A movement."
+  },
+  "movementVoucher": "Voucher",
+  "@movementVoucher": {
+    "description": "A movement."
+  },
+  "movementRefund": "Refund",
+  "@movementRefund": {
+    "description": "A movement."
+  },
+  "movementTip": "Tip for a captain",
+  "@movementTip": {
+    "description": "A movement."
+  },
+  "movementAdjustment": "Adjustment by support",
+  "@movementAdjustment": {
+    "description": "A movement."
+  },
+  "movementOther": "Other movement",
+  "@movementOther": {
+    "description": "A movement."
+  },
+  "movementBalanceAfter": "Balance: {amount}",
+  "@movementBalanceAfter": {
+    "description": "Balance after a movement.",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "yesterday": "Yesterday",
+  "@yesterday": {
+    "description": "Yesterday."
+  },
+  "timeJustNow": "Just now",
+  "@timeJustNow": {
+    "description": "Relative time."
+  },
+  "timeMinutesAgo": "{count, plural, =1{1 min ago} other{{count} min ago}}",
+  "@timeMinutesAgo": {
+    "description": "Relative time in minutes.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "{count, plural, =1{1 hour ago} other{{count} hours ago}}",
+  "@timeHoursAgo": {
+    "description": "Relative time in hours.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "photoTake": "Take a photo",
+  "@photoTake": {
+    "description": "Photo sheet: use the camera"
+  },
+  "photoChoose": "Choose from your photos",
+  "@photoChoose": {
+    "description": "Photo sheet: pick from the gallery"
+  },
+  "photoRemove": "Remove photo",
+  "@photoRemove": {
+    "description": "Photo sheet: delete the current photo"
+  },
+  "genderMale": "Male",
+  "@genderMale": {
+    "description": "Gender option"
+  },
+  "genderFemale": "Female",
+  "@genderFemale": {
+    "description": "Gender option"
+  },
+  "actionNext": "Next",
+  "@actionNext": {
+    "description": "Moves a form to its next step."
+  },
+  "signOut": "Sign out",
+  "@signOut": {
+    "description": "Signs the captain out."
+  },
+  "navEarnings": "Earnings",
+  "@navEarnings": {
+    "description": "Bottom navigation tab."
+  },
+  "navWallet": "Wallet",
+  "@navWallet": {
+    "description": "Bottom navigation tab."
+  },
+  "stepOf": "Step {current} of {count}",
+  "@stepOf": {
+    "description": "Screen reader label of the step bars.",
+    "placeholders": {
+      "current": {
+        "type": "String"
+      },
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "dateDay": "DD",
+  "@dateDay": {
+    "description": "Hint of the day box of a date."
+  },
+  "dateMonth": "MM",
+  "@dateMonth": {
+    "description": "Hint of the month box of a date."
+  },
+  "dateYear": "YYYY",
+  "@dateYear": {
+    "description": "Hint of the year box of a date."
+  },
+  "fieldRequired": "Required",
+  "@fieldRequired": {
+    "description": "Under a field left empty."
+  },
+  "fieldTooLong": "Too long",
+  "@fieldTooLong": {
+    "description": "Under a field over its length."
+  },
+  "appearanceTitle": "Appearance",
+  "@appearanceTitle": {
+    "description": "Section of the language and appearance sheet."
+  },
+  "appearanceLight": "Light",
+  "@appearanceLight": {
+    "description": "Appearance option."
+  },
+  "appearanceDark": "Dark",
+  "@appearanceDark": {
+    "description": "Appearance option."
+  },
+  "appearanceSystem": "Automatic",
+  "@appearanceSystem": {
+    "description": "Appearance option that follows the phone."
+  },
+  "appearanceSystemHint": "Automatic follows your phone's setting.",
+  "@appearanceSystemHint": {
+    "description": "Under the appearance options."
+  },
+  "joinTitle": "Join as a captain",
+  "@joinTitle": {
+    "description": "Join screen title."
+  },
+  "joinSubtitle": "Three steps and you can start taking trips.",
+  "@joinSubtitle": {
+    "description": "Join screen subtitle."
+  },
+  "joinStepDetails": "Enter your details and your car's",
+  "@joinStepDetails": {
+    "description": "Join screen step 1."
+  },
+  "joinStepDocuments": "Upload photos of your documents",
+  "@joinStepDocuments": {
+    "description": "Join screen step 2."
+  },
+  "joinStepReview": "Our team reviews them, then you start",
+  "@joinStepReview": {
+    "description": "Join screen step 3."
+  },
+  "joinStart": "Start registration",
+  "@joinStart": {
+    "description": "Join screen button."
+  },
+  "joinOtherNumber": "Use another number",
+  "@joinOtherNumber": {
+    "description": "Signs out to sign in with another phone."
+  },
+  "registerTitle": "New captain",
+  "@registerTitle": {
+    "description": "Top bar of the registration screens."
+  },
+  "registerYouTitle": "Your details",
+  "@registerYouTitle": {
+    "description": "Registration step 1 title."
+  },
+  "registerName": "Name as on your national ID",
+  "@registerName": {
+    "description": "Name field label."
+  },
+  "registerNameLocked": "Your name is locked once your account is approved.",
+  "@registerNameLocked": {
+    "description": "Under the name field."
+  },
+  "registerNameTooShort": "Write your full name",
+  "@registerNameTooShort": {
+    "description": "Name too short."
+  },
+  "registerNameTooLong": "The name is too long",
+  "@registerNameTooLong": {
+    "description": "Name too long."
+  },
+  "registerGender": "Gender",
+  "@registerGender": {
+    "description": "Gender label."
+  },
+  "registerBirthDate": "Date of birth",
+  "@registerBirthDate": {
+    "description": "Date of birth label."
+  },
+  "registerBirthDateMissing": "Enter a valid date",
+  "@registerBirthDateMissing": {
+    "description": "Date of birth not a real day."
+  },
+  "registerBirthDateInvalid": "Check the year",
+  "@registerBirthDateInvalid": {
+    "description": "Date of birth too far back."
+  },
+  "registerTooYoung": "Captains must be at least {age}",
+  "@registerTooYoung": {
+    "description": "Date of birth too recent.",
+    "placeholders": {
+      "age": {
+        "type": "String"
+      }
+    }
+  },
+  "registerNationality": "Nationality",
+  "@registerNationality": {
+    "description": "Nationality label."
+  },
+  "registerCarTitle": "Your car",
+  "@registerCarTitle": {
+    "description": "Registration step 2 title."
+  },
+  "registerMake": "Make",
+  "@registerMake": {
+    "description": "Car make label."
+  },
+  "registerMakeHint": "e.g. Toyota",
+  "@registerMakeHint": {
+    "description": "Car make hint."
+  },
+  "registerModel": "Model",
+  "@registerModel": {
+    "description": "Car model label."
+  },
+  "registerModelHint": "e.g. Corolla",
+  "@registerModelHint": {
+    "description": "Car model hint."
+  },
+  "registerYear": "Year",
+  "@registerYear": {
+    "description": "Car year label."
+  },
+  "registerYearMissing": "Enter the year, four digits",
+  "@registerYearMissing": {
+    "description": "Car year missing."
+  },
+  "registerYearOutOfRange": "From {year} to next year",
+  "@registerYearOutOfRange": {
+    "description": "Car year out of range.",
+    "placeholders": {
+      "year": {
+        "type": "String"
+      }
+    }
+  },
+  "registerColor": "Colour",
+  "@registerColor": {
+    "description": "Car colour label."
+  },
+  "registerPlate": "Plate number",
+  "@registerPlate": {
+    "description": "Plate label."
+  },
+  "registerPlateTaken": "This plate is already registered",
+  "@registerPlateTaken": {
+    "description": "Plate registered to another captain."
+  },
+  "registerVehicleClass": "Car class",
+  "@registerVehicleClass": {
+    "description": "Car class label."
+  },
+  "registerVehicleClassHint": "Our review team may change it to suit the car.",
+  "@registerVehicleClassHint": {
+    "description": "Under the car class options."
+  },
+  "carColorWhite": "White",
+  "@carColorWhite": {
+    "description": "Car colour."
+  },
+  "carColorBlack": "Black",
+  "@carColorBlack": {
+    "description": "Car colour."
+  },
+  "carColorSilver": "Silver",
+  "@carColorSilver": {
+    "description": "Car colour."
+  },
+  "carColorGray": "Grey",
+  "@carColorGray": {
+    "description": "Car colour."
+  },
+  "carColorBeige": "Beige",
+  "@carColorBeige": {
+    "description": "Car colour."
+  },
+  "carColorBrown": "Brown",
+  "@carColorBrown": {
+    "description": "Car colour."
+  },
+  "carColorRed": "Red",
+  "@carColorRed": {
+    "description": "Car colour."
+  },
+  "carColorBlue": "Blue",
+  "@carColorBlue": {
+    "description": "Car colour."
+  },
+  "carColorGreen": "Green",
+  "@carColorGreen": {
+    "description": "Car colour."
+  },
+  "carColorYellow": "Yellow",
+  "@carColorYellow": {
+    "description": "Car colour."
+  },
+  "countryIQ": "Iraq",
+  "@countryIQ": {
+    "description": "Nationality."
+  },
+  "countrySY": "Syria",
+  "@countrySY": {
+    "description": "Nationality."
+  },
+  "countryTR": "Turkey",
+  "@countryTR": {
+    "description": "Nationality."
+  },
+  "countryIR": "Iran",
+  "@countryIR": {
+    "description": "Nationality."
+  },
+  "countryJO": "Jordan",
+  "@countryJO": {
+    "description": "Nationality."
+  },
+  "countryLB": "Lebanon",
+  "@countryLB": {
+    "description": "Nationality."
+  },
+  "countryPS": "Palestine",
+  "@countryPS": {
+    "description": "Nationality."
+  },
+  "countryEG": "Egypt",
+  "@countryEG": {
+    "description": "Nationality."
+  },
+  "countrySA": "Saudi Arabia",
+  "@countrySA": {
+    "description": "Nationality."
+  },
+  "countryKW": "Kuwait",
+  "@countryKW": {
+    "description": "Nationality."
+  },
+  "countrySD": "Sudan",
+  "@countrySD": {
+    "description": "Nationality."
+  },
+  "countryYE": "Yemen",
+  "@countryYE": {
+    "description": "Nationality."
+  },
+  "countryIN": "India",
+  "@countryIN": {
+    "description": "Nationality."
+  },
+  "countryPK": "Pakistan",
+  "@countryPK": {
+    "description": "Nationality."
+  },
+  "countryBD": "Bangladesh",
+  "@countryBD": {
+    "description": "Nationality."
+  },
+  "documentsTitle": "Documents",
+  "@documentsTitle": {
+    "description": "Registration step 3 title."
+  },
+  "documentsProgress": "{done} of {total} uploaded",
+  "@documentsProgress": {
+    "description": "Required documents handed in.",
+    "placeholders": {
+      "done": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "documentsSend": "Send for review",
+  "@documentsSend": {
+    "description": "Documents screen button."
+  },
+  "documentMissing": "Missing",
+  "@documentMissing": {
+    "description": "Document state."
+  },
+  "documentPending": "Under review",
+  "@documentPending": {
+    "description": "Document state."
+  },
+  "documentRejected": "Rejected",
+  "@documentRejected": {
+    "description": "Document state."
+  },
+  "documentApproved": "Approved",
+  "@documentApproved": {
+    "description": "Document state."
+  },
+  "documentExpiringSoon": "Expires soon",
+  "@documentExpiringSoon": {
+    "description": "Document state."
+  },
+  "documentExpired": "Expired",
+  "@documentExpired": {
+    "description": "Document state."
+  },
+  "documentRenewalPending": "Renewal under review",
+  "@documentRenewalPending": {
+    "description": "Document state."
+  },
+  "documentOptional": "Optional",
+  "@documentOptional": {
+    "description": "Under a document that is not required."
+  },
+  "documentRetake": "Retake the photo",
+  "@documentRetake": {
+    "description": "Upload screen."
+  },
+  "documentPhotoHint": "Make sure all the writing is clear, with no glare.",
+  "@documentPhotoHint": {
+    "description": "Under a document photo."
+  },
+  "documentFaceHint": "A clear photo of your face, looking at the camera.",
+  "@documentFaceHint": {
+    "description": "Under the profile photo."
+  },
+  "documentNumber": "Document number",
+  "@documentNumber": {
+    "description": "Document number label."
+  },
+  "documentNumberInvalid": "3 to 50 letters or digits",
+  "@documentNumberInvalid": {
+    "description": "Document number not accepted."
+  },
+  "documentExpiry": "Expiry date",
+  "@documentExpiry": {
+    "description": "Document expiry label."
+  },
+  "documentExpiryPast": "Must be after today",
+  "@documentExpiryPast": {
+    "description": "Document expiry not in the future."
+  },
+  "documentUpload": "Upload document",
+  "@documentUpload": {
+    "description": "Upload screen button."
+  },
+  "documentPhotoUnusable": "This photo can't be used. Take another one.",
+  "@documentPhotoUnusable": {
+    "description": "The file was refused."
+  },
+  "documentRefused": "Check the photo, number and date, then try again.",
+  "@documentRefused": {
+    "description": "The document was refused."
+  },
+  "reviewTitle": "Your account is under review",
+  "@reviewTitle": {
+    "description": "Under review screen."
+  },
+  "reviewMessage": "We'll notify you when it's approved. You can update your documents meanwhile.",
+  "@reviewMessage": {
+    "description": "Under review screen."
+  },
+  "reviewDocuments": "View documents",
+  "@reviewDocuments": {
+    "description": "Under review screen button."
+  },
+  "rejectedTitle": "Your application was rejected",
+  "@rejectedTitle": {
+    "description": "Rejected screen."
+  },
+  "rejectedMessage": "Correct what our team pointed out, and they'll review it again.",
+  "@rejectedMessage": {
+    "description": "Rejected screen."
+  },
+  "rejectedReason": "Reason: {reason}",
+  "@rejectedReason": {
+    "description": "The reviewer's reason.",
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "rejectedFix": "Edit details and resubmit",
+  "@rejectedFix": {
+    "description": "Rejected screen button."
+  },
+  "suspendedTitle": "Your account is suspended",
+  "@suspendedTitle": {
+    "description": "Suspended screen."
+  },
+  "suspendedMessage": "Please contact the company office to find out why.",
+  "@suspendedMessage": {
+    "description": "Suspended screen."
+  },
+  "welcomeTitle": "Welcome, captain!",
+  "@welcomeTitle": {
+    "description": "Welcome screen after approval."
+  },
+  "welcomeMessage": "Your account is ready. Go online to start receiving trips.",
+  "@welcomeMessage": {
+    "description": "Welcome screen."
+  },
+  "welcomeStart": "Start",
+  "@welcomeStart": {
+    "description": "Welcome screen button."
+  }
+}
