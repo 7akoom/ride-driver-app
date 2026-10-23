@@ -40,17 +40,33 @@ CardThemeData cardTheme(Palette p) => CardThemeData(
     );
 
 /// Pills: surface-2; selected ones are ink with light text.
-ChipThemeData chipTheme(Palette p, AppTypography t) => ChipThemeData(
-      backgroundColor: p.surface2,
-      selectedColor: p.ink,
-      disabledColor: p.surface2,
-      labelStyle: t.caption.copyWith(color: p.textPrimary, fontWeight: FontWeight.w500),
-      secondaryLabelStyle: t.caption.copyWith(color: p.onInk, fontWeight: FontWeight.w500),
-      checkmarkColor: p.onInk,
-      side: BorderSide.none,
-      shape: const StadiumBorder(),
-      padding: const EdgeInsetsDirectional.symmetric(horizontal: Space.x3),
-    );
+ChipThemeData chipTheme(Palette p, AppTypography t, Brightness brightness) {
+  // The selected chip must stand out from the others in both modes: in dark mode the
+  // ink is the same colour as an unselected chip, so the brand fills it instead.
+  final dark = brightness == Brightness.dark;
+  final selectedFill = dark ? p.brand : p.ink;
+  final selectedText = dark ? p.onBrand : p.onInk;
+  final label = t.caption.copyWith(fontWeight: FontWeight.w500);
+
+  return ChipThemeData(
+    backgroundColor: p.surface2,
+    selectedColor: selectedFill,
+    disabledColor: p.surface2,
+    color: WidgetStateProperty.resolveWith(
+      (states) => states.contains(WidgetState.selected) ? selectedFill : p.surface2,
+    ),
+    labelStyle: WidgetStateTextStyle.resolveWith(
+      (states) => label.copyWith(
+        color: states.contains(WidgetState.selected) ? selectedText : p.textPrimary,
+      ),
+    ),
+    secondaryLabelStyle: label.copyWith(color: selectedText),
+    checkmarkColor: selectedText,
+    side: BorderSide.none,
+    shape: const StadiumBorder(),
+    padding: const EdgeInsetsDirectional.symmetric(horizontal: Space.x3),
+  );
+}
 
 /// The bottom navigation: ink background, the active tab in the brand colour.
 NavigationBarThemeData navigationBarTheme(Palette p, AppTypography t) {

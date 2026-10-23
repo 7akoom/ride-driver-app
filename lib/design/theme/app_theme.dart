@@ -59,7 +59,7 @@ abstract final class AppTheme {
       bottomSheetTheme: bottomSheetTheme(p),
       dialogTheme: dialogTheme(p, t),
       cardTheme: cardTheme(p),
-      chipTheme: chipTheme(p, t),
+      chipTheme: chipTheme(p, t, brightness),
       navigationBarTheme: navigationBarTheme(p, t),
       snackBarTheme: snackBarTheme(p, t),
       dividerTheme: dividerTheme(p),
