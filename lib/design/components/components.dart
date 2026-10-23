@@ -7,6 +7,7 @@ export 'buttons/loading_dots.dart';
 export 'buttons/pill_button.dart';
 export 'feedback/app_toast.dart';
 export 'feedback/countdown_builder.dart';
+export 'feedback/countdown_ring.dart';
 export 'feedback/elapsed_builder.dart';
 export 'feedback/empty_state.dart';
 export 'feedback/failure_view.dart';

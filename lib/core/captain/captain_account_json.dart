@@ -26,6 +26,12 @@ CaptainAccount captainAccountFromJson(JsonMap json) {
       'DRIVER_STATUS_REJECTED' => CaptainStatus.rejected,
       _ => CaptainStatus.unknown,
     },
+    availability: switch (json['availabilityStatus']) {
+      'AVAILABILITY_STATUS_OFFLINE' => CaptainAvailability.offline,
+      'AVAILABILITY_STATUS_AVAILABLE' => CaptainAvailability.available,
+      'AVAILABILITY_STATUS_BUSY' => CaptainAvailability.busy,
+      _ => CaptainAvailability.unknown,
+    },
     rejectionReason: _text(json, 'rejectionReason'),
     vehicle: CaptainVehicle(
       make: _text(vehicle, 'make'),

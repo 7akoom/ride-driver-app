@@ -2,6 +2,9 @@
 /// active (or rejected): a new captain cannot work until then.
 enum CaptainStatus { pending, active, suspended, rejected, unknown }
 
+/// Whether the captain is taking trips: offline, waiting for one, or on one.
+enum CaptainAvailability { offline, available, busy, unknown }
+
 /// The car the captain works with, as the account holds it.
 final class CaptainVehicle {
   const CaptainVehicle({
@@ -31,6 +34,7 @@ final class CaptainAccount {
     required this.id,
     required this.displayName,
     required this.status,
+    this.availability = CaptainAvailability.unknown,
     this.rejectionReason = '',
     this.vehicle = const CaptainVehicle(),
     this.ratingAverage = 0,
@@ -42,6 +46,7 @@ final class CaptainAccount {
   /// The name as on the national ID; locked once the account is approved.
   final String displayName;
   final CaptainStatus status;
+  final CaptainAvailability availability;
 
   /// What the reviewer wrote when turning the account down; empty unless rejected.
   final String rejectionReason;

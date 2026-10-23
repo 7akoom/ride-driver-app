@@ -72,5 +72,11 @@
 	<string>Choose photos of your documents or your car from your library.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Your location is sent while you are online so nearby trips reach you and riders see where you are.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>While you are online your location keeps being sent, even with the screen off, so nearby trips reach you and riders see where you are.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 </dict>
 </plist>

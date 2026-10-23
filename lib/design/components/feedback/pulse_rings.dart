@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import '../../design_context.dart';
 import '../trip/route_markers.dart';
 
-/// Rings spreading from the pickup marker while the platform looks for a captain.
-/// Still rings when the phone asks for less motion.
+/// Rings spreading from the pickup marker while the platform looks for a captain, or
+/// from the captain's car while they wait for a trip ([showMarker] false: the map draws
+/// the car). Still rings when the phone asks for less motion.
 class PulseRings extends StatefulWidget {
-  const PulseRings({super.key, this.size = 200});
+  const PulseRings({super.key, this.size = 200, this.showMarker = true});
 
   final double size;
+  final bool showMarker;
 
   @override
   State<PulseRings> createState() => _PulseRingsState();
@@ -52,7 +54,7 @@ class _PulseRingsState extends State<PulseRings> with SingleTickerProviderStateM
           alignment: Alignment.center,
           children: [
             for (var i = 0; i < _rings; i++) _ring(brand, (_wave.value + i / _rings) % 1),
-            const RouteMarker(kind: RoutePointKind.pickup),
+            if (widget.showMarker) const RouteMarker(kind: RoutePointKind.pickup),
           ],
         ),
       ),

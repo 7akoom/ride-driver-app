@@ -16,14 +16,11 @@ lib/legacy/core/models/geo_point.dart
 lib/legacy/core/models/place.dart
 lib/legacy/core/models/settlement.dart
 lib/legacy/core/models/trip.dart
-lib/legacy/features/home/driver_home_screen.dart
 lib/legacy/features/trip/active_trip_screen.dart
 lib/legacy/features/trip/cancel_trip_sheet.dart
 lib/legacy/features/trip/map_overlay.dart
-lib/legacy/features/trip/offer_screen.dart
 lib/legacy/features/trip/trip_summary_screen.dart
 lib/legacy/state/api_providers.dart
-lib/legacy/state/location_reporter.dart
 lib/legacy/state/lookups.dart
 lib/legacy/state/session_storage.dart
 lib/legacy/theme/app_theme.dart

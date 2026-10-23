@@ -819,5 +819,257 @@
   "welcomeStart": "Start",
   "@welcomeStart": {
     "description": "Welcome screen button."
+  },
+  "inboxMarkAllRead": "Mark all as read",
+  "@inboxMarkAllRead": {
+    "description": "Notifications: mark everything read."
+  },
+  "inboxRefresh": "Refresh",
+  "@inboxRefresh": {
+    "description": "Notifications: read again."
+  },
+  "inboxTitle": "Notifications",
+  "@inboxTitle": {
+    "description": "Notifications screen title."
+  },
+  "inboxUnread": "Unread",
+  "@inboxUnread": {
+    "description": "A notification not read yet, for screen readers."
+  },
+  "inboxUnreadCount": "{count, plural, =1{1 unread} other{{count} unread}}",
+  "@inboxUnreadCount": {
+    "description": "Notifications: how many are unread.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "paymentCash": "Cash",
+  "@paymentCash": {
+    "description": "Paying the captain in cash."
+  },
+  "paymentWallet": "Wallet",
+  "@paymentWallet": {
+    "description": "Paying from the app wallet."
+  },
+  "inboxEmpty": "No notifications yet. We will tell you here about your trips, your documents and your wallet.",
+  "@inboxEmpty": {
+    "description": "Notifications: none."
+  },
+  "homeOffline": "Offline",
+  "@homeOffline": {
+    "description": "Home status bar, offline."
+  },
+  "homeOnlineSearching": "Online — looking for trips",
+  "@homeOnlineSearching": {
+    "description": "Home status bar, online."
+  },
+  "homeGoOnline": "Go online",
+  "@homeGoOnline": {
+    "description": "Home switch while offline."
+  },
+  "homeOnline": "Online",
+  "@homeOnline": {
+    "description": "Home switch while online."
+  },
+  "homeTapToGoOffline": "Tap to go offline",
+  "@homeTapToGoOffline": {
+    "description": "Under the switch while online."
+  },
+  "homeTodayEarnings": "Today's earnings",
+  "@homeTodayEarnings": {
+    "description": "Home stat."
+  },
+  "homeTodayTrips": "Today's trips",
+  "@homeTodayTrips": {
+    "description": "Home stat."
+  },
+  "homeMenu": "Menu",
+  "@homeMenu": {
+    "description": "Home menu button, for screen readers."
+  },
+  "actionRecentre": "Show my position",
+  "@actionRecentre": {
+    "description": "Map button that centres on the captain."
+  },
+  "onlineNoticeTitle": "You are online",
+  "@onlineNoticeTitle": {
+    "description": "Title of the notification shown while the position is sent in the background."
+  },
+  "onlineNoticeText": "Looking for trips near you",
+  "@onlineNoticeText": {
+    "description": "Text of the background notification."
+  },
+  "blockedTitle": "You can't go online now",
+  "@blockedTitle": {
+    "description": "Cannot go online: documents."
+  },
+  "blockedDocumentsBody": "A required document is missing or out of date. Check your documents.",
+  "@blockedDocumentsBody": {
+    "description": "Cannot go online, no document named."
+  },
+  "blockedDocumentExpired": "{name} has expired. Upload the renewed one to go online.",
+  "@blockedDocumentExpired": {
+    "description": "Cannot go online: an expired document.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "blockedDocumentMissing": "{name} is missing or was rejected. Upload it to go online.",
+  "@blockedDocumentMissing": {
+    "description": "Cannot go online: a missing document.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "blockedDocumentUpdate": "Update the document",
+  "@blockedDocumentUpdate": {
+    "description": "Opens the upload."
+  },
+  "blockedWalletTitle": "Your account is paused",
+  "@blockedWalletTitle": {
+    "description": "Cannot go online: wallet."
+  },
+  "blockedWalletBody": "Your wallet balance is {balance}, past the allowed limit. Top up at least {due} to take trips again.",
+  "@blockedWalletBody": {
+    "description": "Cannot go online: wallet.",
+    "placeholders": {
+      "balance": {
+        "type": "String"
+      },
+      "due": {
+        "type": "String"
+      }
+    }
+  },
+  "blockedLocationTitle": "Allow your location",
+  "@blockedLocationTitle": {
+    "description": "Cannot go online: location."
+  },
+  "blockedLocationBody": "We need your location, also with the app in the background, to send you nearby trips and show riders where you are.",
+  "@blockedLocationBody": {
+    "description": "Cannot go online: location."
+  },
+  "blockedLocationOffTitle": "Turn on location",
+  "@blockedLocationOffTitle": {
+    "description": "Cannot go online: location off."
+  },
+  "blockedLocationOffBody": "Location is off on your phone. Turn it on to take trips.",
+  "@blockedLocationOffBody": {
+    "description": "Cannot go online: location off."
+  },
+  "blockedOpenSettings": "Open settings",
+  "@blockedOpenSettings": {
+    "description": "Opens the phone's settings."
+  },
+  "offerTitle": "New trip",
+  "@offerTitle": {
+    "description": "Offer card title."
+  },
+  "offerAccept": "Accept",
+  "@offerAccept": {
+    "description": "Offer: accept."
+  },
+  "offerReject": "Decline",
+  "@offerReject": {
+    "description": "Offer: decline."
+  },
+  "offerPickup": "Pickup",
+  "@offerPickup": {
+    "description": "Offer: pickup, when nothing better is known."
+  },
+  "offerDestination": "Destination",
+  "@offerDestination": {
+    "description": "Offer: destination, when nothing better is known."
+  },
+  "offerAway": "{minutes} away · {distance}",
+  "@offerAway": {
+    "description": "Offer: how far the pickup is.",
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      },
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "offerAwayTime": "{minutes} away",
+  "@offerAwayTime": {
+    "description": "Offer: how far the pickup is, time only.",
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "offerFromDropoff": "From your current rider's drop-off",
+  "@offerFromDropoff": {
+    "description": "Offer after the current trip: where the captain starts from."
+  },
+  "offerTripLength": "Trip {minutes} · {distance}",
+  "@offerTripLength": {
+    "description": "Offer: the trip's length.",
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      },
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "offerAfterCurrentTrip": "After your current trip",
+  "@offerAfterCurrentTrip": {
+    "description": "Offer taken after the current one."
+  },
+  "offerAfterCurrentTripIn": "After your current trip · you reach the rider in about {minutes}",
+  "@offerAfterCurrentTripIn": {
+    "description": "Offer taken after the current one, with the time.",
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "offerStops": "{count, plural, =1{1 stop} other{{count} stops}}",
+  "@offerStops": {
+    "description": "Offer: how many stops.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "offerMissed": "You missed the trip",
+  "@offerMissed": {
+    "description": "Toast when an offer ran out."
+  },
+  "offerGone": "The trip is no longer available",
+  "@offerGone": {
+    "description": "Toast when an offer was withdrawn or taken."
+  },
+  "minutesCount": "{count, plural, =1{1 min} other{{count} min}}",
+  "@minutesCount": {
+    "description": "A number of minutes.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "secondsLeft": "{seconds} seconds left",
+  "@secondsLeft": {
+    "description": "Screen reader label of the offer countdown.",
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
   }
 }

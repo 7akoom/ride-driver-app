@@ -1,9 +1,8 @@
 import '../../../core/captain/captain_account_repository.dart';
-import '../../../core/error/failure.dart';
+import '../../../core/captain/current_driver_id.dart';
 import '../../../core/error/guard.dart';
 import '../../../core/error/result.dart';
 import '../../../core/media/media_uploader.dart';
-import '../../../core/security/session_storage.dart';
 import '../domain/entities/document_checklist.dart';
 import '../domain/entities/document_type.dart';
 import '../domain/entities/document_upload.dart';
@@ -47,17 +46,5 @@ final class DocumentsRepositoryImpl implements DocumentsRepository {
         );
       });
 
-  /// The stored driver id, or the profile's when it was not kept (a reinstall).
-  Future<String> _driverId() async {
-    final stored = await SessionStorage.readDriverId();
-    if (stored != null && stored.isNotEmpty) {
-      return stored;
-    }
-
-    return switch (await _accounts.findMine()) {
-      Ok(value: final account?) => account.id,
-      Ok() => throw const NotFoundFailure(),
-      Err(:final failure) => throw failure,
-    };
-  }
+  Future<String> _driverId() => currentDriverId(_accounts);
 }
