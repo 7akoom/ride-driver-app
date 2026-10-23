@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/error/result.dart';
 import '../../../../core/l10n/l10n.dart';
 import '../../../../design/components/components.dart';
+import '../../../inbox/inbox_providers.dart';
 import '../../../offers/domain/entities/trip_offer.dart';
 import '../../../offers/presentation/offer_screen.dart';
 import '../../domain/use_cases/check_for_work.dart';
@@ -52,10 +53,11 @@ mixin WorkWatcher<T extends ConsumerStatefulWidget> on ConsumerState<T> {
     }
   }
 
-  /// The trip screens, then today's numbers again.
+  /// The trip screens, then the bell and today's numbers again.
   Future<void> openTrip() async {
     await openLegacyTrip(context, ref);
     if (mounted) {
+      ref.invalidate(unreadCountProvider);
       await ref.read(homeControllerProvider.notifier).refreshAfterTrip();
     }
   }
@@ -65,6 +67,7 @@ mixin WorkWatcher<T extends ConsumerStatefulWidget> on ConsumerState<T> {
     if (!mounted) {
       return;
     }
+    ref.invalidate(unreadCountProvider);
 
     switch (outcome) {
       case OfferOutcome.accepted:

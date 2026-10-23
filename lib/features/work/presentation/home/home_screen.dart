@@ -37,15 +37,16 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with WorkWatcher {
   AppMapController? _map;
   GeoPoint? _position;
 
-  /// Today's numbers again whenever the captain comes back to the app.
+  /// The bell and today's numbers again whenever the captain comes back to the app.
   late final AppLifecycleListener _life;
 
   @override
   void initState() {
     super.initState();
-    _life = AppLifecycleListener(
-      onResume: () => unawaited(ref.read(homeControllerProvider.notifier).refreshToday()),
-    );
+    _life = AppLifecycleListener(onResume: () {
+      ref.invalidate(unreadCountProvider);
+      unawaited(ref.read(homeControllerProvider.notifier).refreshToday());
+    });
     unawaited(Future.microtask(_start));
   }
 
