@@ -68,7 +68,6 @@ class _NoChangeScreenState extends ConsumerState<NoChangeScreen> {
     final s = widget.settlement;
     final change = s.changeFor(_received);
     final tooMuch = s.tooMuchChange(_received);
-    final money = formatMoney;
 
     return AppScaffold(
       topBar: AppTopBar(title: l10n.noChangeTitle),
@@ -83,15 +82,15 @@ class _NoChangeScreenState extends ConsumerState<NoChangeScreen> {
           const SizedBox(height: Space.x4),
           Text(l10n.noChangeQuestion, textAlign: TextAlign.center, style: context.typo.h2),
           const SizedBox(height: Space.x3),
-          Text(money(l10n, _received), textAlign: TextAlign.center, style: context.typo.display),
+          Text(formatMoney(l10n, _received), textAlign: TextAlign.center, style: context.typo.display),
           const SizedBox(height: Space.x3),
           StatusBanner(
             tone: tooMuch ? Tone.danger : Tone.info,
             message: tooMuch
-                ? l10n.noChangeTooMuch(money(l10n, s.maxChange))
+                ? l10n.noChangeTooMuch(formatMoney(l10n, s.maxChange))
                 : change > 0
-                    ? l10n.noChangeExplained(money(l10n, s.cashAmount), money(l10n, change))
-                    : l10n.noChangeDue(money(l10n, s.cashAmount)),
+                    ? l10n.noChangeExplained(formatMoney(l10n, s.cashAmount), formatMoney(l10n, change))
+                    : l10n.noChangeDue(formatMoney(l10n, s.cashAmount)),
           ),
           const Spacer(),
           NumericKeypad(
