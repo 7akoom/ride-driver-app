@@ -111,6 +111,7 @@ class TripController extends AutoDisposeFamilyNotifier<TripState, CaptainTrip> w
 
     if (!trip.ongoing) {
       _poll?.cancel();
+      endGuidance();
 
       return;
     }

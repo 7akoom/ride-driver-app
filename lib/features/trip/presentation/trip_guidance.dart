@@ -124,6 +124,15 @@ mixin TripGuidance on AutoDisposeFamilyNotifier<TripState, CaptainTrip> {
     }
   }
 
+  /// The trip ended or was cancelled: not another word, and a development build's
+  /// self-driving car stops where it is.
+  void endGuidance() {
+    _quiet = true;
+    _tracker = null;
+    unawaited(ref.read(voiceGuideProvider).stop());
+    ref.read(simDriveProvider)?.follow(const []);
+  }
+
   /// Quiet while the captain drives with another navigation app (it speaks): two
   /// voices at once help no one.
   void quiet(bool on) {
