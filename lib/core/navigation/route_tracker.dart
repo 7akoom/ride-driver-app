@@ -23,6 +23,9 @@ final class RouteTracker {
   /// How far ahead of the last place on the route a new reading is looked for.
   static const double _lookAhead = 400;
 
+  /// Closer than this, the car is on the road.
+  static const double _onRoad = 15;
+
   /// Further than this from the route, a reading is looked for on all of it.
   static const double _nearRoute = 50;
 
@@ -59,6 +62,11 @@ final class RouteTracker {
 
       if (here.off < best.off) {
         best = (off: here.off, along: here.along, segment: i);
+      }
+
+      // On the road, which then moves away: a later part coming back near is not it.
+      if (best.off <= _onRoad && here.off > _onRoad * 2) {
+        break;
       }
     }
 

@@ -1,5 +1,6 @@
 import 'package:driver_app/core/navigation/route_step.dart';
 import 'package:driver_app/core/navigation/route_tracker.dart';
+import 'package:driver_app/core/routing/road_leg.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'route_fixture.dart';
@@ -62,6 +63,20 @@ void main() {
 
       expect(p.along, greaterThan(700));
       expect(p.step!.direction, TurnDirection.right);
+    });
+
+    test('a road coming back near the car is not taken for where it is', () {
+      // East 300 m, a small loop north, back west 12 m north of the way out.
+      final loop = RoadLeg(
+        distanceMeters: 650,
+        duration: const Duration(seconds: 65),
+        path: [at(0, 0), at(300, 0), at(300, 12), at(0, 12), at(0, 40)],
+      );
+      final tracker = RouteTracker(loop);
+      final p = tracker.locate(fixAt(100, 7))!;
+
+      // 7 m from the way out, 5 m from the way back: still on the way out.
+      expect(p.along, closeTo(100, 2));
     });
 
     test('a route without steps still gives the distance left', () {

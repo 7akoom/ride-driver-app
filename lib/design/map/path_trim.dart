@@ -48,6 +48,12 @@ double bearingBetween(GeoPoint from, GeoPoint to) {
       nearest = i;
     }
 
+    // The car was found on the road and the road has moved away from it: a later part
+    // coming back near (a roundabout, a U-turn) is not where the car is.
+    if (best <= _onRoad && distance > _onRoad * 2) {
+      break;
+    }
+
     ahead += metresBetween(path[i], path[i + 1]);
   }
 
@@ -57,6 +63,9 @@ double bearingBetween(GeoPoint from, GeoPoint to) {
 
   return (index: nearest, points: [at, ...path.skip(nearest + 1)]);
 }
+
+/// Closer than this, the car is on the road.
+const double _onRoad = 15;
 
 /// Metres from [p] to the segment [a]–[b] (flat-earth).
 double _toSegment(GeoPoint p, GeoPoint a, GeoPoint b) {

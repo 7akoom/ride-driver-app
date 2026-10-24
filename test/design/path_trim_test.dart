@@ -49,6 +49,21 @@ void main() {
     expect(pathAhead(loop, car)!.index, 0);
   });
 
+  test('a road coming back near the car does not jump the cut ahead', () {
+    // East 100 m, a small loop, back west 12 m north of the way out.
+    const road = [
+      GeoPoint(36.19000, 44.0100),
+      GeoPoint(36.19000, 44.0111),
+      GeoPoint(36.19011, 44.0111),
+      GeoPoint(36.19011, 44.0100),
+      GeoPoint(36.19050, 44.0100),
+    ];
+    // 7 m from the way out, 5 m from the way back: still on the way out.
+    const car = GeoPoint(36.19006, 44.0102);
+
+    expect(pathAhead(road, car)!.index, 0);
+  });
+
   test('a car off the road keeps the road whole', () {
     expect(pathAhead(road, const GeoPoint(36.2, 44.03)), isNull);
   });
