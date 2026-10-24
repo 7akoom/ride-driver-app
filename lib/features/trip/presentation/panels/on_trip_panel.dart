@@ -27,7 +27,7 @@ class OnTripPanel extends StatelessWidget {
     final l10n = context.l10n;
     final trip = state.trip;
     final next = trip.nextStop;
-    final ahead = state.ahead;
+    final ahead = state.left;
     final address = trip.headingAddress;
     final fare = trip.quotedFare;
     final nextTrip = state.next;

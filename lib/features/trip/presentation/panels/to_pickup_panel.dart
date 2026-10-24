@@ -28,7 +28,7 @@ class ToPickupPanel extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        TripHeading(caption: l10n.tripToRider, road: state.ahead),
+        TripHeading(caption: l10n.tripToRider, road: state.left),
         const SizedBox(height: Space.x4),
         RiderCard(rider: state.rider, payment: state.trip.payment),
         const SizedBox(height: Space.x3),

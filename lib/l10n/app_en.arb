@@ -1295,5 +1295,273 @@
   "rateNotePrivate": "The rider never sees it",
   "rateSend": "Send",
   "rateSkip": "Skip",
-  "rateThanks": "Thanks for your rating"
+  "rateThanks": "Thanks for your rating",
+  "navTurnRight": "Turn right",
+  "@navTurnRight": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navTurnLeft": "Turn left",
+  "@navTurnLeft": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navSlightRight": "Bear right",
+  "@navSlightRight": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navSlightLeft": "Bear left",
+  "@navSlightLeft": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navSharpRight": "Turn sharp right",
+  "@navSharpRight": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navSharpLeft": "Turn sharp left",
+  "@navSharpLeft": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navUturn": "Make a U-turn",
+  "@navUturn": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navStraight": "Continue straight",
+  "@navStraight": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navKeepRight": "Keep right",
+  "@navKeepRight": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navKeepLeft": "Keep left",
+  "@navKeepLeft": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navMerge": "Merge",
+  "@navMerge": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navRamp": "Take the ramp",
+  "@navRamp": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navRampRight": "Take the ramp on the right",
+  "@navRampRight": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navRampLeft": "Take the ramp on the left",
+  "@navRampLeft": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navExitRight": "Take the exit on the right",
+  "@navExitRight": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navExitLeft": "Take the exit on the left",
+  "@navExitLeft": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navEndOfRoadRight": "At the end of the road, turn right",
+  "@navEndOfRoadRight": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navEndOfRoadLeft": "At the end of the road, turn left",
+  "@navEndOfRoadLeft": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navRoundabout": "Enter the roundabout",
+  "@navRoundabout": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navRoundaboutExit": "At the roundabout, take the {exit} exit",
+  "@navRoundaboutExit": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card).",
+    "placeholders": {
+      "exit": {
+        "type": "String",
+        "description": "Which exit, already written as a word (first, second...) or a number."
+      }
+    }
+  },
+  "navExitRoundabout": "Exit the roundabout",
+  "@navExitRoundabout": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navOrdinal1": "first",
+  "@navOrdinal1": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navOrdinal2": "second",
+  "@navOrdinal2": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navOrdinal3": "third",
+  "@navOrdinal3": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navOrdinal4": "fourth",
+  "@navOrdinal4": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navOrdinal5": "fifth",
+  "@navOrdinal5": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navOrdinal6": "sixth",
+  "@navOrdinal6": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navOrdinal7": "seventh",
+  "@navOrdinal7": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navOrdinal8": "eighth",
+  "@navOrdinal8": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navOnto": "{action} onto {street}",
+  "@navOnto": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card).",
+    "placeholders": {
+      "action": {
+        "type": "String",
+        "description": "The maneuver, e.g. Turn right."
+      },
+      "street": {
+        "type": "String",
+        "description": "The road's name or number."
+      }
+    }
+  },
+  "navThen": "{first}, then {second}",
+  "@navThen": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card).",
+    "placeholders": {
+      "first": {
+        "type": "String",
+        "description": "The maneuver said now."
+      },
+      "second": {
+        "type": "String",
+        "description": "The one right after it."
+      }
+    }
+  },
+  "navIn": "In {distance}, {action}",
+  "@navIn": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card).",
+    "placeholders": {
+      "distance": {
+        "type": "String",
+        "description": "How far, already written out (300 meters)."
+      },
+      "action": {
+        "type": "String",
+        "description": "The maneuver."
+      }
+    }
+  },
+  "navMetersSpoken": "{meters} meters",
+  "@navMetersSpoken": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card).",
+    "placeholders": {
+      "meters": {
+        "type": "String",
+        "description": "A number of meters, already formatted, to be spoken."
+      }
+    }
+  },
+  "navKilometersSpoken": "{km} kilometers",
+  "@navKilometersSpoken": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card).",
+    "placeholders": {
+      "km": {
+        "type": "String",
+        "description": "A number of kilometers, already formatted, to be spoken."
+      }
+    }
+  },
+  "navReachPickup": "You will reach the pickup",
+  "@navReachPickup": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navReachStop": "You will reach the stop",
+  "@navReachStop": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navReachDestination": "You will reach the destination",
+  "@navReachDestination": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navArrivedPickup": "You have reached the pickup",
+  "@navArrivedPickup": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navArrivedStop": "You have reached the stop",
+  "@navArrivedStop": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navArrivedDestination": "You have reached the destination",
+  "@navArrivedDestination": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navOnRight": "{arrival}, on your right",
+  "@navOnRight": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card).",
+    "placeholders": {
+      "arrival": {
+        "type": "String",
+        "description": "The arrival sentence."
+      }
+    }
+  },
+  "navOnLeft": "{arrival}, on your left",
+  "@navOnLeft": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card).",
+    "placeholders": {
+      "arrival": {
+        "type": "String",
+        "description": "The arrival sentence."
+      }
+    }
+  },
+  "navRerouting": "Finding a new route…",
+  "@navRerouting": {
+    "description": "Shown on the turn card while a new route is asked after the captain left the old one."
+  },
+  "navVoiceOn": "Turn on spoken directions",
+  "@navVoiceOn": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navVoiceOff": "Mute spoken directions",
+  "@navVoiceOff": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navVoiceMuted": "Spoken directions are off",
+  "@navVoiceMuted": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navVoiceUnmuted": "Spoken directions are on",
+  "@navVoiceUnmuted": {
+    "description": "Turn-by-turn navigation (spoken and on the turn card)."
+  },
+  "navVoiceUnavailable": "This phone has no voice for spoken directions; the card above still shows each turn",
+  "@navVoiceUnavailable": {
+    "description": "Toast when the phone's speech engine has no voice for the language."
+  },
+  "navVoiceInArabic": "No Kurdish voice on this phone: directions are spoken in Arabic",
+  "@navVoiceInArabic": {
+    "description": "Toast once when Kurdish was chosen but the phone only speaks Arabic."
+  },
+  "navDistanceRoad": "{distance} · {road}",
+  "@navDistanceRoad": {
+    "description": "The turn card: how far to the turn, then the road taken there.",
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      },
+      "road": {
+        "type": "String"
+      }
+    }
+  }
 }

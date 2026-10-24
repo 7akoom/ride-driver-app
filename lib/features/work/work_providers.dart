@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/captain/captain_providers.dart';
+import '../../core/location/geo_fix.dart';
 import '../../core/location/geo_point.dart';
 import '../../core/location/location_providers.dart';
 import '../../core/network/api_client_provider.dart';
@@ -57,3 +58,6 @@ final checkForWorkProvider = Provider<CheckForWork>(
 
 /// Where the phone is while the captain is online (the reporter's positions).
 final captainPositionProvider = StreamProvider<GeoPoint>((ref) => ref.watch(positionReporterProvider).positions);
+
+/// The same with the direction and speed, for turn-by-turn navigation.
+final captainFixProvider = StreamProvider<GeoFix>((ref) => ref.watch(positionReporterProvider).fixes);

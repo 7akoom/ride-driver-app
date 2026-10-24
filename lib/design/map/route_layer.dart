@@ -27,8 +27,8 @@ final class RouteLayer {
   /// Degrees around a single point framed alone: a few hundred metres.
   static const double _around = 0.003;
 
-  /// Draws [route] and frames it, leaving [bottom] free under it.
-  Future<void> draw(MapRoute route, {double bottom = framePadding}) async {
+  /// Draws [route] and, with [frame], frames it, leaving [bottom] free under it.
+  Future<void> draw(MapRoute route, {double bottom = framePadding, bool frame = true}) async {
     await _map.clearLines();
     await _map.clearCircles();
     _line = null;
@@ -54,7 +54,9 @@ final class RouteLayer {
       ));
     }
 
-    await _frame(route.extent, bottom);
+    if (frame) {
+      await _frame(route.extent, bottom);
+    }
   }
 
   /// The road is drawn from [car] on: what it has driven is gone.

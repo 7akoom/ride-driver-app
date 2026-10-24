@@ -39,13 +39,18 @@ final class MapLayers {
   /// Once the style is there: the car's picture.
   Future<void> ready() => _run(_car.prepare);
 
-  /// Draws [route], frames it with [bottom] left free under it, and puts the car at [car].
-  Future<void> draw(MapRoute route, {GeoPoint? car, required double bottom}) {
+  /// A car followed by the camera gets a reading every second: it glides faster.
+  static const Duration quickGlideStep = Duration(milliseconds: 110);
+
+  /// Draws [route], frames it with [bottom] left free under it (unless [frame] is
+  /// false: the camera follows the car), and puts the car at [car]. [mapBearing] is how
+  /// the map is turned, so the car still points the way it drives.
+  Future<void> draw(MapRoute route, {GeoPoint? car, required double bottom, bool frame = true, double mapBearing = 0}) {
     _glide?.cancel();
 
     return _run(() async {
-      await _route.draw(route, bottom: bottom);
-      await _car.place(car);
+      await _route.draw(route, bottom: bottom, frame: frame);
+      await _car.place(car, mapBearing: mapBearing);
       if (car != null) {
         await _route.trim(car);
       }
@@ -53,17 +58,17 @@ final class MapLayers {
   }
 
   /// Slides the car to [to] (or takes it off when null), the road behind it going.
-  void moveCar(GeoPoint? to) {
+  void moveCar(GeoPoint? to, {double mapBearing = 0, bool quick = false}) {
     _glide?.cancel();
     final from = _car.at;
 
     if (to == null || from == null) {
-      unawaited(_run(() => _car.place(to)));
+      unawaited(_run(() => _car.place(to, mapBearing: mapBearing)));
       return;
     }
 
     var step = 0;
-    _glide = Timer.periodic(glideStep, (timer) {
+    _glide = Timer.periodic(quick ? quickGlideStep : glideStep, (timer) {
       step++;
       final t = step / glideSteps;
       final point = GeoPoint(
@@ -71,7 +76,7 @@ final class MapLayers {
         from.longitude + (to.longitude - from.longitude) * t,
       );
       unawaited(_run(() async {
-        await _car.place(point);
+        await _car.place(point, mapBearing: mapBearing);
         await _route.trim(point);
       }));
 

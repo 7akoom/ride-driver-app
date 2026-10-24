@@ -74,10 +74,28 @@ class MainActivity : FlutterActivity() {
                     else -> result.notImplemented()
                 }
             }
+
+        // Keeps the screen on while the captain drives with the map (turn-by-turn
+        // navigation). See lib/core/screen/keep_screen_on.dart.
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, SCREEN_CHANNEL)
+            .setMethodCallHandler { call, result ->
+                when (call.method) {
+                    "keepOn" -> {
+                        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+                        result.success(null)
+                    }
+                    "allowOff" -> {
+                        window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+                        result.success(null)
+                    }
+                    else -> result.notImplemented()
+                }
+            }
     }
 
     companion object {
         private const val SECURE_WINDOW_CHANNEL = "driver_app/secure_window"
+        private const val SCREEN_CHANNEL = "driver_app/screen"
         private const val OFFERS_CHANNEL = "trip_offers"
         private const val GENERAL_CHANNEL = "general"
     }

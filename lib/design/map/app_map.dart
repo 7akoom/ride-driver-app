@@ -5,39 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 import '../../core/config/app_env.dart';
-import '../../core/error/error_reporter.dart';
 import '../../core/location/geo_point.dart';
 import '../design_context.dart';
 import '../tokens/metrics.dart';
+import 'app_map_controller.dart';
+import 'map_follow.dart';
 import 'map_layers.dart';
 import 'map_route.dart';
 import 'map_style.dart';
 import 'route_layer.dart';
 
-/// Moves the map. Screens use this, never the plugin's controller.
-class AppMapController {
-  AppMapController(this._map);
+export 'app_map_controller.dart';
+export 'map_follow.dart';
 
-  final MapLibreMapController _map;
-
-  /// The point in the middle of the map, when it is known.
-  GeoPoint? get center {
-    final target = _map.cameraPosition?.target;
-
-    return target == null ? null : GeoPoint(target.latitude, target.longitude);
-  }
-
-  Future<void> moveTo(GeoPoint point, {double zoom = AppMap.streetZoom}) async {
-    try {
-      await _map.animateCamera(
-        CameraUpdate.newLatLngZoom(LatLng(point.latitude, point.longitude), zoom),
-      );
-    } catch (error, stack) {
-      // The map was closed or is not ready: moving it can wait for the next time.
-      ErrorReporter.report(error, stack);
-    }
-  }
-}
+part 'app_map_following.dart';
 
 /// The platform's own map (MapLibre with the copy's tile server), in the style of the
 /// current mode and language. It opens on [center], or on the copy's city.
@@ -52,6 +33,8 @@ class AppMap extends StatefulWidget {
     this.route,
     this.vehicle,
     this.frameBottom = RouteLayer.framePadding,
+    this.follow,
+    this.onDragged,
   });
 
   final GeoPoint? center;
@@ -73,8 +56,14 @@ class AppMap extends StatefulWidget {
   /// Room left under a framed route, for what covers the map's bottom (a sheet).
   final double frameBottom;
 
+  /// While set, the camera follows the car (navigation) and a new route is not framed.
+  final MapFollow? follow;
+
+  /// The captain moved the map with a finger (the following camera lets go).
+  final VoidCallback? onDragged;
+
   static const double cityZoom = 13;
-  static const double streetZoom = 16;
+  static const double streetZoom = AppMapController.streetZoom;
 
   /// The copy's city (MAP_CENTER), or Erbil when the setting is not a position.
   static GeoPoint get defaultCenter =>
@@ -88,9 +77,11 @@ class AppMap extends StatefulWidget {
   State<AppMap> createState() => _AppMapState();
 }
 
-class _AppMapState extends State<AppMap> {
+class _AppMapState extends State<AppMap> with _Following {
+  @override
   AppMapController? _controller;
   MapLayers? _layers;
+  @override
   bool _styleReady = false;
 
   void _created(MapLibreMapController map) {
@@ -118,6 +109,7 @@ class _AppMapState extends State<AppMap> {
 
     _styleReady = true;
     _draw();
+    _followCar();
   }
 
   @override
@@ -127,7 +119,11 @@ class _AppMapState extends State<AppMap> {
     if (widget.route != oldWidget.route) {
       _draw();
     } else if (widget.vehicle != oldWidget.vehicle && _styleReady) {
-      _layers?.moveCar(widget.vehicle);
+      _layers?.moveCar(widget.vehicle, mapBearing: widget.follow?.bearing ?? 0, quick: widget.follow != null);
+    }
+
+    if (widget.follow != oldWidget.follow) {
+      _followCar();
     }
   }
 
@@ -142,7 +138,7 @@ class _AppMapState extends State<AppMap> {
     if (route == null) {
       layers.moveCar(widget.vehicle);
     } else {
-      unawaited(layers.draw(route, car: widget.vehicle, bottom: widget.frameBottom));
+      unawaited(_drawRoute(layers, route));
     }
   }
 
@@ -173,27 +169,32 @@ class _AppMapState extends State<AppMap> {
     final start = widget.center ?? AppMap.defaultCenter;
     final rtl = Directionality.of(context) == TextDirection.rtl;
 
-    return MapLibreMap(
-      // A new style (mode or language changed) needs a new map.
-      key: ValueKey(style),
-      styleString: style,
-      initialCameraPosition: CameraPosition(
-        target: LatLng(start.latitude, start.longitude),
-        zoom: widget.zoom,
+    return Listener(
+      onPointerDown: (event) => _down = event.position,
+      onPointerMove: widget.onDragged == null ? null : _pointerMoved,
+      onPointerUp: (_) => _down = null,
+      child: MapLibreMap(
+        // A new style (mode or language changed) needs a new map.
+        key: ValueKey(style),
+        styleString: style,
+        initialCameraPosition: CameraPosition(
+          target: LatLng(start.latitude, start.longitude),
+          zoom: widget.zoom,
+        ),
+        myLocationEnabled: widget.showMyLocation,
+        trackCameraPosition: widget.onSettled != null,
+        onCameraIdle: widget.onSettled == null ? null : _idle,
+        compassEnabled: false,
+        // The data's licence asks for the attribution; it sits in the start corner,
+        // away from the map buttons at the end. Its own margin leaves room for a
+        // logo the map does not show, which put it in the middle: set it here.
+        attributionButtonPosition: rtl
+            ? AttributionButtonPosition.bottomRight
+            : AttributionButtonPosition.bottomLeft,
+        attributionButtonMargins: const Point(Space.x2, Space.x2),
+        onMapCreated: _created,
+        onStyleLoadedCallback: () => unawaited(_styleLoaded()),
       ),
-      myLocationEnabled: widget.showMyLocation,
-      trackCameraPosition: widget.onSettled != null,
-      onCameraIdle: widget.onSettled == null ? null : _idle,
-      compassEnabled: false,
-      // The data's licence asks for the attribution; it sits in the start corner,
-      // away from the map buttons at the end. Its own margin leaves room for a
-      // logo the map does not show, which put it in the middle: set it here.
-      attributionButtonPosition: rtl
-          ? AttributionButtonPosition.bottomRight
-          : AttributionButtonPosition.bottomLeft,
-      attributionButtonMargins: const Point(Space.x2, Space.x2),
-      onMapCreated: _created,
-      onStyleLoadedCallback: () => unawaited(_styleLoaded()),
     );
   }
 }

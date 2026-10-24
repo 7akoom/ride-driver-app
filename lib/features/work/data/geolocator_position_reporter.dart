@@ -1,11 +1,12 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
 
 import '../../../core/error/error_reporter.dart';
+import '../../../core/location/geo_fix.dart';
 import '../../../core/location/geo_point.dart';
 import '../domain/repositories/position_reporter.dart';
+import 'position_settings.dart';
 
 /// [PositionReporter] through the geolocator plugin.
 ///
@@ -17,23 +18,28 @@ import '../domain/repositories/position_reporter.dart';
 final class GeolocatorPositionReporter implements PositionReporter {
   GeolocatorPositionReporter();
 
-  static const Duration interval = Duration(seconds: 5);
-
-  /// Metres the phone has to move before the GPS reports again.
-  static const int _distanceFilter = 10;
+  static const Duration interval = PositionPace.usual;
 
   final StreamController<GeoPoint> _positions = StreamController<GeoPoint>.broadcast();
+  final StreamController<GeoFix> _fixes = StreamController<GeoFix>.broadcast();
   StreamSubscription<Position>? _subscription;
   Timer? _timer;
   Future<void> Function(GeoPoint position)? _send;
+  ReportingNotice? _notice;
   GeoPoint? _last;
   bool _sending = false;
+  int _detailedBy = 0;
+
+  bool get _detailed => _detailedBy > 0;
 
   @override
   bool get running => _subscription != null;
 
   @override
   Stream<GeoPoint> get positions => _positions.stream;
+
+  @override
+  Stream<GeoFix> get fixes => _fixes.stream;
 
   @override
   GeoPoint? get last => _last;
@@ -45,20 +51,14 @@ final class GeolocatorPositionReporter implements PositionReporter {
   }) async {
     stop();
     _send = send;
-
-    _subscription = Geolocator.getPositionStream(locationSettings: _settings(notice)).listen(
-      (position) => _seen(GeoPoint(position.latitude, position.longitude)),
-      onError: (Object error, StackTrace stack) {
-        // A GPS hiccup: the next fix or the next tick carries on.
-        ErrorReporter.report(error, stack);
-      },
-    );
+    _notice = notice;
+    _listen();
 
     // The phone usually knows roughly where it is already: use that until the first fix.
     try {
       final known = await Geolocator.getLastKnownPosition();
       if (known != null && _last == null) {
-        _seen(GeoPoint(known.latitude, known.longitude));
+        _seen(GeoFix(GeoPoint(known.latitude, known.longitude)));
       }
     } catch (error, stack) {
       ErrorReporter.report(error, stack);
@@ -77,9 +77,49 @@ final class GeolocatorPositionReporter implements PositionReporter {
     _send = null;
   }
 
-  void _seen(GeoPoint point) {
-    _last = point;
-    _positions.add(point);
+  @override
+  void detailed(bool on) {
+    final before = _detailed;
+    _detailedBy = on ? _detailedBy + 1 : (_detailedBy > 0 ? _detailedBy - 1 : 0);
+
+    if (_detailed == before) {
+      return;
+    }
+
+    // The plugin keeps one stream per settings: a new pace needs a new stream. Sending
+    // the position goes on meanwhile (its own timer).
+    if (_subscription != null) {
+      _subscription?.cancel();
+      _listen();
+    }
+  }
+
+  void _listen() {
+    final notice = _notice;
+    if (notice == null) {
+      return;
+    }
+
+    _subscription = Geolocator.getPositionStream(locationSettings: positionSettings(notice, detailed: _detailed)).listen(
+      (position) => _seen(_fixOf(position)),
+      onError: (Object error, StackTrace stack) {
+        // A GPS hiccup: the next fix or the next tick carries on.
+        ErrorReporter.report(error, stack);
+      },
+    );
+  }
+
+  static GeoFix _fixOf(Position p) => GeoFix(
+        GeoPoint(p.latitude, p.longitude),
+        heading: p.heading >= 0 ? p.heading : null,
+        speed: p.speed >= 0 ? p.speed : null,
+        accuracy: p.accuracy > 0 ? p.accuracy : null,
+      );
+
+  void _seen(GeoFix fix) {
+    _last = fix.point;
+    _positions.add(fix.point);
+    _fixes.add(fix);
   }
 
   Future<void> _push() async {
@@ -99,28 +139,4 @@ final class GeolocatorPositionReporter implements PositionReporter {
       _sending = false;
     }
   }
-
-  static LocationSettings _settings(ReportingNotice notice) => switch (defaultTargetPlatform) {
-        TargetPlatform.android => AndroidSettings(
-            accuracy: LocationAccuracy.high,
-            distanceFilter: _distanceFilter,
-            intervalDuration: interval,
-            foregroundNotificationConfig: ForegroundNotificationConfig(
-              notificationTitle: notice.title,
-              notificationText: notice.text,
-              notificationChannelName: notice.title,
-              enableWakeLock: true,
-              setOngoing: true,
-            ),
-          ),
-        TargetPlatform.iOS => AppleSettings(
-            accuracy: LocationAccuracy.high,
-            distanceFilter: _distanceFilter,
-            activityType: ActivityType.automotiveNavigation,
-            pauseLocationUpdatesAutomatically: false,
-            showBackgroundLocationIndicator: true,
-            allowBackgroundLocationUpdates: true,
-          ),
-        _ => const LocationSettings(accuracy: LocationAccuracy.high, distanceFilter: _distanceFilter),
-      };
 }

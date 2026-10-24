@@ -3,11 +3,13 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/error/result.dart';
-import '../../../core/location/geo_point.dart';
+import '../../../core/location/geo_fix.dart';
 import '../../../core/routing/routing_providers.dart';
+import '../../../core/voice/voice_providers.dart';
 import '../../work/work_providers.dart';
 import '../domain/entities/captain_trip.dart';
 import '../trip_providers.dart';
+import 'trip_guidance.dart';
 import 'trip_state.dart';
 import 'trip_steps.dart';
 
@@ -16,31 +18,35 @@ final tripControllerProvider =
 
 /// Follows the captain's trip from taking it to its end: reads it every few seconds
 /// (the rider may cancel, the backend may move it on), who the rider is, the waiting
-/// rules, the road ahead from where the captain is, and keeps the road driven.
-class TripController extends AutoDisposeFamilyNotifier<TripState, CaptainTrip> with TripSteps {
-  static const Duration routeEvery = Duration(seconds: 30);
+/// rules, the road ahead with its turns (TripGuidance), and keeps the road driven.
+class TripController extends AutoDisposeFamilyNotifier<TripState, CaptainTrip> with TripSteps, TripGuidance {
   static const Duration waypointEvery = Duration(seconds: 10);
 
   Timer? _poll;
   bool _reading = false;
   bool _closed = false;
-  DateTime? _routedAt;
-  GeoPoint? _routedTo;
   DateTime? _waypointAt;
+  GeoFix? _lastFix;
 
   @override
   bool get closed => _closed;
 
   @override
   TripState build(CaptainTrip arg) {
+    // A reading every second while the screen is open, for the turn card and the voice.
+    final reporter = ref.read(positionReporterProvider)..detailed(true);
+    final voice = ref.read(voiceGuideProvider);
+
     ref.onDispose(() {
       _closed = true;
       _poll?.cancel();
+      reporter.detailed(false);
+      unawaited(voice.stop());
     });
 
-    ref.listen(captainPositionProvider, (_, next) {
-      if (next.valueOrNull case final at?) {
-        _moved(at);
+    ref.listen(captainFixProvider, (_, next) {
+      if (next.valueOrNull case final fix?) {
+        _moved(fix);
       }
     });
 
@@ -62,8 +68,8 @@ class TripController extends AutoDisposeFamilyNotifier<TripState, CaptainTrip> w
     }
 
     await read();
-    if (state.position case final at?) {
-      await _route(at, force: true);
+    if (_lastFix == null && state.position != null) {
+      await routeFrom(GeoFix(state.position!));
     }
   }
 
@@ -117,8 +123,10 @@ class TripController extends AutoDisposeFamilyNotifier<TripState, CaptainTrip> w
       }
     }
 
-    if (before.heading != trip.heading && state.position != null) {
-      await _route(state.position!, force: true);
+    // The pickup reached, the trip started, a stop passed: the road to the next place.
+    final at = _lastFix ?? (state.position == null ? null : GeoFix(state.position!));
+    if (before.heading != trip.heading && at != null) {
+      await routeFrom(at);
     }
 
     if (next != null && state.nextRider == null) {
@@ -136,33 +144,16 @@ class TripController extends AutoDisposeFamilyNotifier<TripState, CaptainTrip> w
     }
   }
 
-  void _moved(GeoPoint at) {
-    state = state.copyWith(position: at, failure: state.failure);
-    unawaited(_route(at));
+  void _moved(GeoFix fix) {
+    _lastFix = fix;
+    state = state.copyWith(position: fix.point, failure: state.failure);
+    guide(fix);
 
     final now = DateTime.now();
     final last = _waypointAt;
     if (state.phase == TripPhase.onTrip && (last == null || now.difference(last) >= waypointEvery)) {
       _waypointAt = now;
-      unawaited(ref.read(tripRepositoryProvider).waypoint(state.trip.id, at));
-    }
-  }
-
-  Future<void> _route(GeoPoint from, {bool force = false}) async {
-    final to = state.trip.heading;
-    final last = _routedAt;
-    final now = DateTime.now();
-
-    if (!state.trip.ongoing || (!force && _routedTo == to && last != null && now.difference(last) < routeEvery)) {
-      return;
-    }
-
-    _routedAt = now;
-    _routedTo = to;
-    final road = await ref.read(roadRepositoryProvider).road([from, to]);
-
-    if (!_closed && state.trip.heading == to && road is Ok) {
-      state = state.copyWith(ahead: road.valueOrNull, failure: state.failure);
+      unawaited(ref.read(tripRepositoryProvider).waypoint(state.trip.id, fix.point));
     }
   }
 }

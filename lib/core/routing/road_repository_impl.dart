@@ -5,6 +5,7 @@ import '../location/polyline.dart';
 import '../network/api_client.dart';
 import 'road_leg.dart';
 import 'road_repository.dart';
+import 'route_step_json.dart';
 
 final class RoadRepositoryImpl implements RoadRepository {
   RoadRepositoryImpl(this._client);
@@ -26,6 +27,19 @@ final class RoadRepositoryImpl implements RoadRepository {
           },
         ));
       });
+
+  @override
+  Future<Result<RoadLeg>> guide(GeoPoint from, GeoPoint to, {double? heading}) => guard(() async {
+        return roadIn(await _client.post(
+          '/v1/routes:compute',
+          body: <String, dynamic>{
+            'origin': from.toJson(),
+            'destination': to.toJson(),
+            'steps': true,
+            if (heading != null) 'heading': heading,
+          },
+        ));
+      });
 }
 
 /// A road in a routing answer.
@@ -38,5 +52,6 @@ RoadLeg roadIn(JsonMap json) {
     distanceMeters: meters is num ? meters.toDouble() : 0,
     duration: Duration(seconds: seconds is num ? seconds.round() : 0),
     path: polyline is String ? decodePolyline(polyline) : const <GeoPoint>[],
+    steps: routeStepsIn(json['steps']),
   );
 }
