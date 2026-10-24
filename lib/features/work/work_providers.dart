@@ -5,9 +5,11 @@ import '../../core/location/geo_fix.dart';
 import '../../core/location/geo_point.dart';
 import '../../core/location/location_providers.dart';
 import '../../core/network/api_client_provider.dart';
+import '../../core/sim/sim_providers.dart';
 import '../documents/documents_providers.dart';
 import '../offers/offers_providers.dart';
 import 'data/geolocator_position_reporter.dart';
+import 'data/sim_position_reporter.dart';
 import 'data/work_api.dart';
 import 'data/work_repository_impl.dart';
 import 'domain/repositories/position_reporter.dart';
@@ -23,9 +25,11 @@ final workRepositoryProvider = Provider<WorkRepository>(
   (ref) => WorkRepositoryImpl(WorkApi(ref.watch(apiClientProvider)), ref.watch(captainAccountRepositoryProvider)),
 );
 
-/// The one reporter: it outlives every screen, as the position does.
+/// The one reporter: it outlives every screen, as the position does. A development
+/// build with SIM_DRIVE reports the self-driving car instead.
 final positionReporterProvider = Provider<PositionReporter>((ref) {
-  final reporter = GeolocatorPositionReporter();
+  final sim = ref.watch(simDriveProvider);
+  final PositionReporter reporter = sim == null ? GeolocatorPositionReporter() : SimPositionReporter(sim);
   ref.onDispose(reporter.stop);
 
   return reporter;

@@ -12,6 +12,7 @@ import '../../../core/navigation/off_route_watch.dart';
 import '../../../core/navigation/route_tracker.dart';
 import '../../../core/navigation/voice_planner.dart';
 import '../../../core/routing/routing_providers.dart';
+import '../../../core/sim/sim_providers.dart';
 import '../../../core/voice/voice_providers.dart';
 import '../../../state/locale_provider.dart';
 import '../domain/entities/captain_trip.dart';
@@ -107,6 +108,8 @@ mixin TripGuidance on AutoDisposeFamilyNotifier<TripState, CaptainTrip> {
           _routedTo = to;
           _offRoute.reset();
           _planner.restart();
+          // A development build's self-driving car drives the new road.
+          ref.read(simDriveProvider)?.follow(value.path);
           state = state.copyWith(ahead: value, progress: progress, clearProgress: progress == null, rerouting: false, failure: state.failure);
 
           if (progress != null) {

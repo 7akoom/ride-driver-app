@@ -368,5 +368,6 @@
   "navVoiceUnmuted": "ڕێنمایی دەنگی کار دەکات",
   "navVoiceUnavailable": "مۆبایلەکەت دەنگی ڕێنمایی نییە؛ کارتەکەی سەرەوە هەموو پێچێک پیشان دەدات",
   "navVoiceInArabic": "دەنگی کوردی لەسەر مۆبایلەکەت نییە: ڕێنمایی دەنگی بە عەرەبییە",
-  "navDistanceRoad": "{distance} · {road}"
+  "navDistanceRoad": "{distance} · {road}",
+  "simLeaveRoad": "لاساییکردنەوە: چوونە سەر شەقامێکی هەڵە"
 }

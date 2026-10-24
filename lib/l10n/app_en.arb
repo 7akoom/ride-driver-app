@@ -1563,5 +1563,9 @@
         "type": "String"
       }
     }
+  },
+  "simLeaveRoad": "Simulation: take a wrong street",
+  "@simLeaveRoad": {
+    "description": "Development builds only (SIM_DRIVE): map button that makes the self-driving car leave its road."
   }
 }

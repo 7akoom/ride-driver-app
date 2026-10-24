@@ -86,6 +86,11 @@ abstract final class AppEnv {
   /// Required in release builds; empty in development (the phone's usual checks).
   static const String apiPins = String.fromEnvironment('API_PINS');
 
+  /// Development only: the car drives itself along the trip's road (40 km/h), for
+  /// trying turn-by-turn navigation at a desk (`--dart-define=SIM_DRIVE=true`). Never on
+  /// in a release build, whatever the setting.
+  static const bool simDrive = !kReleaseMode && bool.fromEnvironment('SIM_DRIVE');
+
   /// Sent with every login so the backend can tell which app a session belongs to.
   static const String clientId = 'driver-app';
 

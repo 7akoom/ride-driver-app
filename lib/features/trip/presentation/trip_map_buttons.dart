@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/l10n/l10n.dart';
+import '../../../core/sim/sim_providers.dart';
 import '../../../core/voice/voice_providers.dart';
 import '../../../design/components/components.dart';
 import '../../../design/design_context.dart';
@@ -99,6 +100,16 @@ class TripMapButtons extends ConsumerWidget {
             semanticLabel: voiceOn ? l10n.navVoiceOff : l10n.navVoiceOn,
             floating: true,
             onPressed: () => _voice(context, ref, voiceOn),
+          ),
+        ],
+        // Development builds with SIM_DRIVE: the self-driving car takes a wrong street.
+        if (ref.watch(simDriveProvider) case final sim? when state.guiding) ...[
+          const SizedBox(height: Space.x3),
+          AppIconButton(
+            icon: Icons.alt_route,
+            semanticLabel: l10n.simLeaveRoad,
+            floating: true,
+            onPressed: sim.leaveRoad,
           ),
         ],
         // Hidden while the camera already follows the car: nothing to bring back.

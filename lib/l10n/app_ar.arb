@@ -368,5 +368,6 @@
   "navVoiceUnmuted": "الإرشاد الصوتي يعمل",
   "navVoiceUnavailable": "لا يدعم هاتفك الإرشاد الصوتي؛ البطاقة في الأعلى تعرض كل انعطاف",
   "navVoiceInArabic": "لا يوجد صوت كردي على هاتفك: الإرشاد الصوتي بالعربية",
-  "navDistanceRoad": "{distance} · {road}"
+  "navDistanceRoad": "{distance} · {road}",
+  "simLeaveRoad": "محاكاة: الخروج عن الطريق"
 }
