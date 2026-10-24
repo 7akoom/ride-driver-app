@@ -27,6 +27,28 @@ void main() {
     expect(pathAhead(road, back, from: 2)!.index, 2);
   });
 
+  test('a car just before a corner keeps the corner on the line', () {
+    // North, then east: the car is 20 m before the corner, nearer the corner point
+    // than the start, and the line must still go through the corner.
+    const corner = [GeoPoint(36.190, 44.010), GeoPoint(36.191, 44.010), GeoPoint(36.191, 44.012)];
+    const car = GeoPoint(36.1908, 44.010);
+
+    expect(pathAhead(corner, car)!.points, [car, corner[1], corner[2]]);
+  });
+
+  test('a later part of the road passing near is not taken for this one', () {
+    // Out east 1 km and back on a parallel street 30 m away.
+    const loop = [
+      GeoPoint(36.1900, 44.010),
+      GeoPoint(36.1900, 44.021),
+      GeoPoint(36.1903, 44.021),
+      GeoPoint(36.1903, 44.010),
+    ];
+    const car = GeoPoint(36.1902, 44.0105);
+
+    expect(pathAhead(loop, car)!.index, 0);
+  });
+
   test('a car off the road keeps the road whole', () {
     expect(pathAhead(road, const GeoPoint(36.2, 44.03)), isNull);
   });

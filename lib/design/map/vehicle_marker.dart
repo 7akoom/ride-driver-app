@@ -38,7 +38,9 @@ final class VehicleMarker {
   /// Puts the car at [point], turned towards where it came from, or takes it off.
   /// [mapBearing] is how the map itself is turned (the driving camera turns it): the
   /// picture turns by the difference, as it is drawn upright on the screen.
-  Future<void> place(GeoPoint? point, {double mapBearing = 0}) async {
+  /// [upright]: the map is turned with the road ahead up (the driving camera), so the
+  /// car is drawn pointing up, steady whatever the GPS does.
+  Future<void> place(GeoPoint? point, {double mapBearing = 0, bool upright = false}) async {
     final symbol = _symbol;
     final before = _at;
 
@@ -60,7 +62,7 @@ final class VehicleMarker {
     final options = SymbolOptions(
       geometry: LatLng(point.latitude, point.longitude),
       iconImage: _image,
-      iconRotate: (_bearing - mapBearing + 360) % 360,
+      iconRotate: upright ? 0 : (_bearing - mapBearing + 360) % 360,
       iconSize: 1,
     );
 

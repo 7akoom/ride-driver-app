@@ -46,11 +46,12 @@ final class MapLayers {
   /// false: the camera follows the car), and puts the car at [car]. [mapBearing] is how
   /// the map is turned, so the car still points the way it drives.
   Future<void> draw(MapRoute route, {GeoPoint? car, required double bottom, bool frame = true, double mapBearing = 0}) {
+    final upright = !frame;
     _glide?.cancel();
 
     return _run(() async {
       await _route.draw(route, bottom: bottom, frame: frame);
-      await _car.place(car, mapBearing: mapBearing);
+      await _car.place(car, mapBearing: mapBearing, upright: upright);
       if (car != null) {
         await _route.trim(car);
       }
@@ -63,7 +64,7 @@ final class MapLayers {
     final from = _car.at;
 
     if (to == null || from == null) {
-      unawaited(_run(() => _car.place(to, mapBearing: mapBearing)));
+      unawaited(_run(() => _car.place(to, mapBearing: mapBearing, upright: quick)));
       return;
     }
 
@@ -76,7 +77,7 @@ final class MapLayers {
         from.longitude + (to.longitude - from.longitude) * t,
       );
       unawaited(_run(() async {
-        await _car.place(point, mapBearing: mapBearing);
+        await _car.place(point, mapBearing: mapBearing, upright: quick);
         await _route.trim(point);
       }));
 

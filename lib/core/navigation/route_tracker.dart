@@ -75,7 +75,7 @@ final class RouteTracker {
       along: along,
       offRouteMeters: off,
       onRoute: _line.pointAt(along),
-      bearing: _line.bearingOf(segment),
+      bearing: _bearingAround(along, segment),
       remainingMeters: left,
       remaining: _timeLeft(along, left),
       step: next == null ? null : steps[next],
@@ -84,6 +84,24 @@ final class RouteTracker {
       thenGapMeters: then == null || next == null ? 0 : _stepAt[then] - _stepAt[next],
       path: road.path,
     );
+  }
+
+  /// The road's direction around [along]: from a little behind to a little ahead, so
+  /// the many short pieces of a map's line (a few metres each, pointing every which
+  /// way) do not turn the map at every reading.
+  double _bearingAround(double along, int segment) {
+    final from = _line.pointAt(math.max(0, along - 5));
+    final to = _line.pointAt(math.min(_line.length, along + 30));
+
+    if (from == to) {
+      return _line.bearingOf(segment);
+    }
+
+    final k = math.cos(from.latitude * math.pi / 180);
+    final dx = (to.longitude - from.longitude) * k;
+    final dy = to.latitude - from.latitude;
+
+    return (math.atan2(dx, dy) * 180 / math.pi + 360) % 360;
   }
 
   /// The first maneuver worth saying still ahead, the arrival included.
