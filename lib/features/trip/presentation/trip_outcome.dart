@@ -10,14 +10,19 @@ import '../domain/entities/trip_people.dart';
 import '../trip_providers.dart';
 import 'trip_screen.dart';
 
-/// Opens the trip the captain is on, and returns when its screens close. Nothing opens
-/// when there is no trip or it cannot be read (the next check for work tries again).
-Future<void> openCaptainTrip(BuildContext context, WidgetRef ref) async {
+/// Opens the trip the captain is on, and returns when its screens close, with the
+/// trip's id. Nothing opens (null) when there is no trip or it cannot be read (the next
+/// check for work tries again).
+Future<String?> openCaptainTrip(BuildContext context, WidgetRef ref) async {
   final work = await ref.read(tripRepositoryProvider).active();
 
   if (work case Ok(value: final now?) when context.mounted) {
     await Navigator.of(context).push<void>(MaterialPageRoute(builder: (_) => TripScreen(trip: now.trip)));
+
+    return now.trip.id;
   }
+
+  return null;
 }
 
 /// The trip ended: on to collecting the fare, or back home saying why it was cancelled.

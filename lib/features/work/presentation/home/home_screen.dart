@@ -17,6 +17,8 @@ import '../../work_providers.dart';
 import '../widgets/blocked_sheet.dart';
 import '../widgets/home_menu_sheet.dart';
 import '../widgets/online_toggle.dart';
+import '../../../trip/domain/entities/captain_trip.dart';
+import '../widgets/ongoing_trip_card.dart';
 import '../widgets/status_strip.dart';
 import '../widgets/today_stats.dart';
 import 'home_controller.dart';
@@ -167,6 +169,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with WorkWatcher {
         ),
         panel: MapPanel(
           children: [
+            ValueListenableBuilder<CaptainTrip?>(
+              valueListenable: ongoingTrip,
+              builder: (context, trip, _) => trip == null
+                  ? const SizedBox.shrink()
+                  : Padding(
+                      padding: const EdgeInsetsDirectional.only(bottom: Space.x4),
+                      child: OngoingTripCard(trip: trip, onOpen: () => unawaited(openTrip())),
+                    ),
+            ),
             TodayStats(today: state.today),
             const SizedBox(height: Space.x4),
             OnlineToggle(

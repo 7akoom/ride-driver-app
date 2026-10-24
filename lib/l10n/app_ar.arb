@@ -369,5 +369,8 @@
   "navVoiceUnavailable": "لا يدعم هاتفك الإرشاد الصوتي؛ البطاقة في الأعلى تعرض كل انعطاف",
   "navVoiceInArabic": "لا يوجد صوت كردي على هاتفك: الإرشاد الصوتي بالعربية",
   "navDistanceRoad": "{distance} · {road}",
-  "simLeaveRoad": "محاكاة: الخروج عن الطريق"
+  "simLeaveRoad": "محاكاة: الخروج عن الطريق",
+  "homeOngoingTrip": "رحلتك الجارية",
+  "homeOnTrip": "في الرحلة",
+  "homeBackToTrip": "العودة إليها"
 }

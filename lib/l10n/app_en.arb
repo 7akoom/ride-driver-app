@@ -1567,5 +1567,17 @@
   "simLeaveRoad": "Simulation: take a wrong street",
   "@simLeaveRoad": {
     "description": "Development builds only (SIM_DRIVE): map button that makes the self-driving car leave its road."
+  },
+  "homeOngoingTrip": "Your trip in progress",
+  "@homeOngoingTrip": {
+    "description": "Home: the card of a trip still going that the captain stepped out of."
+  },
+  "homeOnTrip": "On the trip",
+  "@homeOnTrip": {
+    "description": "Home: the card of a trip still going that the captain stepped out of."
+  },
+  "homeBackToTrip": "Back to it",
+  "@homeBackToTrip": {
+    "description": "Home: the card of a trip still going that the captain stepped out of."
   }
 }
