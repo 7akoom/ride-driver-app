@@ -42,7 +42,7 @@ class _TripScreenState extends ConsumerState<TripScreen> {
     }
 
     if (before?.phase != now.phase && !now.trip.ongoing) {
-      unawaited(closeTrip(context, ref, now.trip));
+      unawaited(closeTrip(context, now.trip, rider: now.rider));
     }
   }
 

@@ -1216,5 +1216,84 @@
   "sosSend": "Send the alert",
   "sosFailed": "The alert didn't go. Try again, or call an emergency number.",
   "sosSentTitle": "Alert sent",
-  "sosSentBody": "The safety team knows"
+  "sosSentBody": "The safety team knows",
+  "actionConfirm": "Confirm",
+  "actionContinue": "Continue",
+  "collectTitle": "Trip ended",
+  "collectFromRider": "Collect from the rider",
+  "collectPaidByWallet": "Paid from the rider's wallet",
+  "collectNothing": "Don't collect anything",
+  "collectSplit": "The rider paid {amount} from their wallet",
+  "@collectSplit": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "collectTip": "The rider tipped you {amount}",
+  "@collectTip": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "collectFare": "Trip fare",
+  "collectNoChange": "The rider gave me more and I have no change",
+  "collectReceived": "Received",
+  "changeCredited": "{amount} added to the rider's wallet",
+  "@changeCredited": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "noChangeTitle": "No change",
+  "noChangeQuestion": "How much did you receive from the rider?",
+  "noChangeDue": "Due {due}",
+  "@noChangeDue": {
+    "placeholders": {
+      "due": {
+        "type": "String"
+      }
+    }
+  },
+  "noChangeExplained": "Due {due} · we'll add the difference {change} to the rider's wallet; nothing is taken from you",
+  "@noChangeExplained": {
+    "placeholders": {
+      "due": {
+        "type": "String"
+      },
+      "change": {
+        "type": "String"
+      }
+    }
+  },
+  "noChangeTooMuch": "The difference can be at most {limit}",
+  "@noChangeTooMuch": {
+    "placeholders": {
+      "limit": {
+        "type": "String"
+      }
+    }
+  },
+  "rateTitle": "Rate the rider",
+  "rateQuestion": "How was {name}?",
+  "@rateQuestion": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "rateQuestionNoName": "How was the rider?",
+  "rateTagOnTime": "On time",
+  "rateTagPolite": "Polite",
+  "rateNoteHint": "A note for our team (optional)",
+  "rateNotePrivate": "The rider never sees it",
+  "rateSend": "Send",
+  "rateSkip": "Skip",
+  "rateThanks": "Thanks for your rating"
 }

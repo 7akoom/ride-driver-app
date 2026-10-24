@@ -50,7 +50,7 @@ class _SosSheetState extends State<SosSheet> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          HeroIcon(icon: Icons.verified_user_outlined, tone: Tone.success),
+          const HeroIcon(icon: Icons.verified_user_outlined, tone: Tone.success),
           const SizedBox(height: Space.x3),
           Text(l10n.sosSentTitle, textAlign: TextAlign.center, style: context.typo.h2),
           const SizedBox(height: Space.x1),

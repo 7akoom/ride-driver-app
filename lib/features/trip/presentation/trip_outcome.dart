@@ -4,8 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/error/result.dart';
 import '../../../core/l10n/l10n.dart';
 import '../../../design/components/components.dart';
-import '../../work/presentation/legacy_trip.dart';
+import '../../trip_end/presentation/collect_screen.dart';
 import '../domain/entities/captain_trip.dart';
+import '../domain/entities/trip_people.dart';
 import '../trip_providers.dart';
 import 'trip_screen.dart';
 
@@ -20,9 +21,9 @@ Future<void> openCaptainTrip(BuildContext context, WidgetRef ref) async {
 }
 
 /// The trip ended: on to collecting the fare, or back home saying why it was cancelled.
-Future<void> closeTrip(BuildContext context, WidgetRef ref, CaptainTrip trip) async {
+Future<void> closeTrip(BuildContext context, CaptainTrip trip, {TripRider? rider}) async {
   if (trip.phase == TripPhase.completed) {
-    return openLegacySummary(context, ref, trip.id);
+    return openCollect(context, trip.id, rider);
   }
 
   final l10n = context.l10n;
