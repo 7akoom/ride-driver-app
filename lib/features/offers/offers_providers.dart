@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/captain/captain_providers.dart';
 import '../../core/network/api_client_provider.dart';
+import '../../core/routing/routing_providers.dart';
 import 'data/offers_api.dart';
 import 'data/offers_repository_impl.dart';
 import 'domain/repositories/offers_repository.dart';
@@ -13,4 +14,4 @@ final offersRepositoryProvider = Provider<OffersRepository>(
   (ref) => OffersRepositoryImpl(OffersApi(ref.watch(apiClientProvider)), ref.watch(captainAccountRepositoryProvider)),
 );
 
-final describeOfferProvider = Provider<DescribeOffer>((ref) => DescribeOffer(ref.watch(offersRepositoryProvider)));
+final describeOfferProvider = Provider<DescribeOffer>((ref) => DescribeOffer(ref.watch(roadRepositoryProvider)));

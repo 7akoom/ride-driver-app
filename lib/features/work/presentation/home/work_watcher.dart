@@ -11,7 +11,7 @@ import '../../../offers/domain/entities/trip_offer.dart';
 import '../../../offers/presentation/offer_screen.dart';
 import '../../domain/use_cases/check_for_work.dart';
 import '../../work_providers.dart';
-import '../legacy_trip.dart';
+import '../../../trip/presentation/trip_outcome.dart';
 import 'home_controller.dart';
 
 /// Every few seconds while the captain is online and home is in front: a trip opens
@@ -55,7 +55,7 @@ mixin WorkWatcher<T extends ConsumerStatefulWidget> on ConsumerState<T> {
 
   /// The trip screens, then the bell and today's numbers again.
   Future<void> openTrip() async {
-    await openLegacyTrip(context, ref);
+    await openCaptainTrip(context, ref);
     if (mounted) {
       ref.invalidate(unreadCountProvider);
       await ref.read(homeControllerProvider.notifier).refreshAfterTrip();

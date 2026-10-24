@@ -14,6 +14,12 @@ sealed class Result<T> {
       Err<T>(:final failure) => onErr(failure),
     };
   }
+
+  /// The value, or null for a failure (when a failure only means "not known yet").
+  T? get valueOrNull => switch (this) {
+        Ok<T>(:final value) => value,
+        Err<T>() => null,
+      };
 }
 
 final class Ok<T> extends Result<T> {

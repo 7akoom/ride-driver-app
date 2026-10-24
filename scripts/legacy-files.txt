@@ -1,5 +1,5 @@
-# Files under lib/legacy: the old home and trip screens, kept working until the redesigned
-# ones replace them. The checks skip them; delete each line when its file goes.
+# Files under lib/legacy: the old end-of-trip screen, kept working until the redesigned
+# one replaces it (batch 3b). The checks skip them; delete each line when its file goes.
 lib/legacy/core/api/api_client.dart
 lib/legacy/core/api/api_exception.dart
 lib/legacy/core/api/api_messages.dart
@@ -7,20 +7,14 @@ lib/legacy/core/api/driver_api.dart
 lib/legacy/core/api/maps_api.dart
 lib/legacy/core/api/money_api.dart
 lib/legacy/core/api/trip_api.dart
-lib/legacy/core/app_config.dart
 lib/legacy/core/format.dart
 lib/legacy/core/geo/polyline.dart
-lib/legacy/core/map_config.dart
 lib/legacy/core/models/driver_profile.dart
 lib/legacy/core/models/geo_point.dart
 lib/legacy/core/models/place.dart
 lib/legacy/core/models/settlement.dart
 lib/legacy/core/models/trip.dart
-lib/legacy/features/trip/active_trip_screen.dart
-lib/legacy/features/trip/cancel_trip_sheet.dart
-lib/legacy/features/trip/map_overlay.dart
 lib/legacy/features/trip/trip_summary_screen.dart
 lib/legacy/state/api_providers.dart
-lib/legacy/state/lookups.dart
 lib/legacy/state/session_storage.dart
 lib/legacy/theme/app_theme.dart

@@ -1,7 +1,5 @@
 import '../../../core/location/geo_point.dart';
-import '../../../core/location/polyline.dart';
 import '../../../core/network/json.dart';
-import '../domain/entities/offer_route.dart';
 import '../domain/entities/trip_offer.dart';
 
 /// The offer in an answer, or null when there is none (no offer, or one without a
@@ -40,18 +38,6 @@ TripOffer? offerIn(JsonMap json) {
     ],
     afterCurrentTrip: offer['afterCurrentTrip'] == true,
     pickupEta: eta is num && eta > 0 ? Duration(seconds: eta.round()) : null,
-  );
-}
-
-RoadLeg roadIn(JsonMap json) {
-  final meters = json['distanceMeters'];
-  final seconds = json['durationSeconds'];
-  final polyline = json['polyline'];
-
-  return RoadLeg(
-    distanceMeters: meters is num ? meters.toDouble() : 0,
-    duration: Duration(seconds: seconds is num ? seconds.round() : 0),
-    path: polyline is String ? decodePolyline(polyline) : const <GeoPoint>[],
   );
 }
 

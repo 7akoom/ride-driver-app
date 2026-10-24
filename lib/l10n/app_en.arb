@@ -1071,5 +1071,150 @@
         "type": "String"
       }
     }
-  }
+  },
+  "actionCancel": "Cancel",
+  "emergencyAmbulance": "Ambulance",
+  "emergencyFire": "Fire department",
+  "emergencyGeneral": "Emergency",
+  "emergencyNumbersHint": "Tap a number to call it.",
+  "emergencyNumbersTitle": "Emergency numbers",
+  "emergencyPolice": "Police",
+  "roadMinutesAndDistance": "{minutes} · {distance}",
+  "@roadMinutesAndDistance": {
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      },
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "tripToRider": "On the way to the rider",
+  "tripTo": "To {place}",
+  "@tripTo": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "tripRoadUnknown": "—",
+  "tripRider": "Rider",
+  "tripPaidWith": "{payment} · {fare}",
+  "@tripPaidWith": {
+    "placeholders": {
+      "payment": {
+        "type": "String"
+      },
+      "fare": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPassenger": "Rider: {name}",
+  "@tripPassenger": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "tripEntrancePhoto": "Photo of the entrance",
+  "tripEntrancePhotoHint": "Tap to see the building's entrance",
+  "tripArrived": "Arrived",
+  "tripGetCloser": "Get closer to the pickup (under {meters} m)",
+  "@tripGetCloser": {
+    "placeholders": {
+      "meters": {
+        "type": "String"
+      }
+    }
+  },
+  "tripCancel": "Cancel trip",
+  "tripWaitingTitle": "Waiting for the rider",
+  "tripRiderToldArrived": "The rider was told you are here",
+  "tripFreeWaiting": "Free waiting",
+  "tripWaited": "Waiting",
+  "tripPaidWaitingStarted": "Waiting is now charged",
+  "tripNoShow": "The rider didn't come",
+  "tripSlideToStart": "Slide to start the trip",
+  "tripSlideToFinish": "Slide to end the trip",
+  "tripArrivalTime": "Arriving",
+  "tripStopNumber": "Stop {number}",
+  "@tripStopNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "tripStopReached": "Stop {number} ✓",
+  "@tripStopReached": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "tripReachedStop": "Arrived at stop {number}",
+  "@tripReachedStop": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "tripNextTrip": "Your next trip",
+  "tripAfterDropoff": "{distance} after the drop-off",
+  "@tripAfterDropoff": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "tripOpenNavigation": "Open in a navigation app",
+  "tripNoNavigationApp": "No navigation app could open",
+  "tripEndedByRider": "The rider cancelled the trip",
+  "tripEndedByCaptain": "You cancelled the trip",
+  "tripEndedNoShow": "Recorded: the rider didn't come",
+  "cancelWhy": "Why are you cancelling?",
+  "cancelRiderAsked": "The rider asked to cancel",
+  "cancelWrongAddress": "The address is wrong",
+  "cancelCarProblem": "A problem with the car",
+  "cancelEmergency": "An emergency",
+  "cancelOther": "Another reason",
+  "cancelOtherHint": "Tell us what happened",
+  "cancelCountsNote": "Cancelling counts toward the cancellation rate some bonuses require",
+  "cancelBackToTrip": "Back to the trip",
+  "noShowTitle": "The rider didn't come?",
+  "noShowBody": "You waited {minutes}. The trip will be cancelled.",
+  "@noShowBody": {
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "noShowBodyFee": "You waited {minutes}. The trip will be cancelled and the rider pays a no-show fee of {fee}, added to your earnings after the commission.",
+  "@noShowBodyFee": {
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      },
+      "fee": {
+        "type": "String"
+      }
+    }
+  },
+  "noShowSlide": "Slide to confirm",
+  "noShowKeepWaiting": "Keep waiting",
+  "sosShort": "SOS",
+  "sosConfirmTitle": "Send an emergency alert?",
+  "sosConfirmBody": "We'll alert the safety team and share your location and the trip's details with them.",
+  "sosSend": "Send the alert",
+  "sosFailed": "The alert didn't go. Try again, or call an emergency number.",
+  "sosSentTitle": "Alert sent",
+  "sosSentBody": "The safety team knows"
 }

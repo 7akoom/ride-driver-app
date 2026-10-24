@@ -4,8 +4,6 @@ import '../../../core/error/failure.dart';
 import '../../../core/error/failure_mapper.dart';
 import '../../../core/error/guard.dart';
 import '../../../core/error/result.dart';
-import '../../../core/location/geo_point.dart';
-import '../domain/entities/offer_route.dart';
 import '../domain/entities/trip_offer.dart';
 import '../domain/repositories/offers_repository.dart';
 import 'offer_json.dart';
@@ -37,15 +35,6 @@ final class OffersRepositoryImpl implements OffersRepository {
   @override
   Future<Result<void>> reject(TripOffer offer) =>
       guard(() async => _api.reject(offer.tripId, await _driverId()));
-
-  @override
-  Future<Result<RoadLeg>> road(List<GeoPoint> points) => guard(() async {
-        if (points.length < 2) {
-          throw ArgumentError.value(points.length, 'points', 'a road needs two ends');
-        }
-
-        return roadIn(await _api.route(points));
-      });
 
   Future<String> _driverId() => currentDriverId(_accounts);
 }

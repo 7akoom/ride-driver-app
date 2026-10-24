@@ -14,7 +14,6 @@ import '../../../inbox/inbox_providers.dart';
 import '../../../inbox/presentation/inbox_screen.dart';
 import '../../domain/repositories/position_reporter.dart';
 import '../../work_providers.dart';
-import '../legacy_trip.dart';
 import '../widgets/blocked_sheet.dart';
 import '../widgets/home_menu_sheet.dart';
 import '../widgets/online_toggle.dart';
@@ -76,7 +75,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with WorkWatcher {
   void _follow(GeoPoint position) {
     final first = _position == null;
     setState(() => _position = position);
-    shareLegacyPosition(ref, position);
 
     if (first || ref.read(homeControllerProvider).online) {
       unawaited(_map?.moveTo(position));
